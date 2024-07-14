@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { connectToDatabse } from '@/lib/database'
 import User from '@/lib/database/models/user.model'
 //import Order from '@/lib/database/models/order.model'
-import Campaign from '@/lib/database/models/Campaign.model'
+import Campaign from '@/lib/database/models/campaign.model'
 import { handleError } from '@/lib/utils'
 
 import { CreateUserParams, UpdateUserParams } from '@/types'
