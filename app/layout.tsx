@@ -7,9 +7,9 @@ import "./globals.css";
 const poppins = Poppins({ subsets: ["latin"], weight : ['400','500','600','700'], variable: '--font-poppins' });
 
 export const metadata: Metadata = {
-  title: "Mela",
-  description: "Mela is a place where you figure things out",
-  icons:{icon:'/assets/images/logo.svg'}
+  title: "Wegenie",
+  description: "Start Cultivating Hope, Change Life's, Impact The World Now!",
+  icons:{icon:'/assets/images/Logo.svg'}
 };
 
 export default function RootLayout({
