@@ -1,6 +1,6 @@
 import CampaignForm from '@/components/shared/CampaignForm'
 import { auth } from '@clerk/nextjs/server';
-import React from 'react'
+
 
 const CreateCampaign = () => {
     const {sessionClaims} = auth();

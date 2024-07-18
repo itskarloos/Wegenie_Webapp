@@ -13,7 +13,7 @@ export const headerLinks = [
     },
   ]
   
-  export const eventDefaultValues = {
+  export const CampaignDefaultValues = {
     title: '',
     description: '',
     location: '',
