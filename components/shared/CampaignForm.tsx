@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { campaignformSchema } from "@/lib/validator";
 import { CampaignDefaultValues } from "@/constants";
+import Dropdown from "./Dropdown";
 
 type CampaignFormProps = {
   userId: string;
@@ -52,9 +53,23 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
                   className="input-field"
                   />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+               
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="categoryId"
+            render={({ field }) => (
+              <FormItem className="w-full">
+
+                <FormControl>
+                  <Dropdown onChangeHandler={field.onChange}
+                  value={field.value}
+                  />
+                </FormControl>
+               
                 <FormMessage />
               </FormItem>
             )}
