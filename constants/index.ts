@@ -4,7 +4,7 @@ export const headerLinks = [
       route: '/',
     },
     {
-      label: 'Create Fund',
+      label: 'Create Campaign',
       route: '/campaigns/create',
     },
     {
