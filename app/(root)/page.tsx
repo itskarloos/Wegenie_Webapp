@@ -20,7 +20,7 @@ export default function Home() {
             </Button>
           </div>
           <Image
-            src="/assets/images/wegenie-hero-section.png"
+            src="/assets/images/Hero.png"
             alt="Hero"
             width={1000}
             height={1000}
