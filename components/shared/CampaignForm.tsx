@@ -157,7 +157,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
-                      src="/assets/icons/calender.svg"
+                      src="/assets/icons/calendar.svg"
                       alt="calender"
                       width={24}
                       height={24}
@@ -173,7 +173,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
                       timeInputLabel="Time:"
                       dateFormat="MM/dd/yyyy h:mm aa"
                       wrapperClassName="datepicker-wrapper"
-                      className="input-field"
+                      
                     />
                   </div>
                 </FormControl>
