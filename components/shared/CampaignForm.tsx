@@ -232,7 +232,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
                       height={24}
                       className="filter-grey"
                     />
-                    <Input type="number" placeholder="price"/>
+                    <Input type="number" placeholder="price" {...field} />
                   </div>
                 </FormControl>
 
