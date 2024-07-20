@@ -23,7 +23,6 @@ import Image from "next/image";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 type CampaignFormProps = {
   userId: string;
   type: "Create" | "Update";
@@ -129,17 +128,17 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
               <FormItem className="w-full">
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
-                  <Image
-                    src="/assets/icons/location-grey.svg"
-                    alt="location"
-                    width={24}
-                    height={24}
-                  />
-                  <Input
-                    placeholder="Campaign Location"
-                    {...field}
-                    className="input-field"
-                  />
+                    <Image
+                      src="/assets/icons/location-grey.svg"
+                      alt="location"
+                      width={24}
+                      height={24}
+                    />
+                    <Input
+                      placeholder="Campaign Location"
+                      {...field}
+                      className="input-field"
+                    />
                   </div>
                 </FormControl>
 
@@ -157,15 +156,25 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
               <FormItem className="w-full">
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
-                  <Image
-                    src="/assets/icons/calender.svg"
-                    alt="calender"
-                    width={24}
-                    height={24}
-                    className="filter-grey"
-                  />
-                  <p className="ml-3 whitespace-nowrap text-grey-600">Start Date:</p>
-                  <DatePicker selected={field.value} onChange={(date: Date | null) => field.onChange(date)} />
+                    <Image
+                      src="/assets/icons/calender.svg"
+                      alt="calender"
+                      width={24}
+                      height={24}
+                      className="filter-grey"
+                    />
+                    <p className="ml-3 whitespace-nowrap text-grey-600">
+                      Start Date:
+                    </p>
+                    <DatePicker
+                      selected={field.value}
+                      onChange={(date: Date | null) => field.onChange(date)}
+                      showTimeSelect
+                      timeInputLabel="Time:"
+                      dateFormat="MM/dd/yyyy h:mm aa"
+                      wrapperClassName="datepicker-wrapper"
+                      className="input-field"
+                    />
                   </div>
                 </FormControl>
 
@@ -174,7 +183,6 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
             )}
           />
         </div>
-
 
         <Button type="submit">Submit</Button>
       </form>
