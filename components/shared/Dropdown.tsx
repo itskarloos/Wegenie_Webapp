@@ -37,13 +37,17 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
     });
   };
 
-  useEffect(()=>{
-    const getCategories = async () =>{
+  
+  useEffect(() => {
+    const getCategories = async () => {
       const categoryList = await getAllCategories();
-      categoryList && setCategories(categories as ICategory[]);
+
+      categoryList && setCategories(categoryList as ICategory[])
     }
+
     getCategories();
-  },[])
+  }, [])
+
   return (
     <Select onValueChange={onChangeHandler} defaultValue={value}>
       <SelectTrigger className="select-field">
