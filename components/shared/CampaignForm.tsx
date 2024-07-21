@@ -23,6 +23,7 @@ import Image from "next/image";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "../ui/checkbox";
+import { useUploadThing } from '@/lib/uploadthing'
 
 type CampaignFormProps = {
   userId: string;
@@ -32,16 +33,27 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
   const [files, setfiles] = useState<File[]>([]);
   const initialValues = CampaignDefaultValues;
 
+  const { startUpload } = useUploadThing('imageUploader');
+
+
   const form = useForm<z.infer<typeof campaignformSchema>>({
     resolver: zodResolver(campaignformSchema),
     defaultValues: initialValues,
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof campaignformSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof campaignformSchema>) {
+    const campaignData = values;
+
+    let uploadedImageUrl = values.imageUrl;
+
+    if(files.length > 0){
+      const uploadedImages = await startUpload(files)
+      if(!uploadedImages){
+        return 
+      }
+      uploadedImageUrl = uploadedImages[0].url
+    }
   }
   return (
     <Form {...form}>
