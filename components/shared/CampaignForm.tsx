@@ -25,6 +25,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "../ui/checkbox";
 import { useUploadThing } from '@/lib/uploadthing'
 import { useRouter } from "next/navigation";
+import { createCampaign } from "@/lib/actions/campaign.actions";
 
 type CampaignFormProps = {
   userId: string;
@@ -57,7 +58,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
     }
     if(type === 'Create'){
       try {
-        /*const newCampaign = await createCampaign({
+        const newCampaign = await createCampaign({
           campaign: { ...values, imageUrl: uploadedImageUrl },
           userId,
           path: "/profile",
@@ -65,7 +66,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
         if (newCampaign) {
           form.reset();
           router.push(`/campaings/${newCampaign._id}`);
-        }*/
+        }
       } catch (error) {
         console.log(error);
       }
