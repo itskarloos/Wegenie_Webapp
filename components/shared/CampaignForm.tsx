@@ -56,14 +56,17 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
       uploadedImageUrl = uploadedImages[0].url
     }
     if(type === 'Create'){
-      try{
-        const newCampaign = await createCampaign({campaign: {...values, imageUrl: uploadedImageUrl},userId,path:'/profile'})
-        if(newCampaign){
+      try {
+        /*const newCampaign = await createCampaign({
+          campaign: { ...values, imageUrl: uploadedImageUrl },
+          userId,
+          path: "/profile",
+        });
+        if (newCampaign) {
           form.reset();
-          router.push(`/campaings/${newCampaign._id}`)
-        }
-      }
-      catch(error){
+          router.push(`/campaings/${newCampaign._id}`);
+        }*/
+      } catch (error) {
         console.log(error);
       }
     }
