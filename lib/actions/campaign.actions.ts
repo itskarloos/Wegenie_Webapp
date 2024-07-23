@@ -18,6 +18,8 @@ export const createCampaign = async ({
     if (!organizer) {
       throw new Error("Campaign organizer not found");
     }
+    console.log({categoryId: campaign.categoryId, organizer:userId})
+    
     const newCampaign = await Campaign.create({
       ...campaign,
       category: campaign.categoryId,
