@@ -10,4 +10,3 @@ const CampaignDetails = async({ params : { id }}: SearchParamProps) => {
   )
 }
 
-export default CampaignDetails
