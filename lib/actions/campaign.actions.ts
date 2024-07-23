@@ -5,7 +5,14 @@ import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
 import Campaign from "../database/models/campaign.model";
+import Category from "../database/models/category.model";
 
+
+const populateCampaign = async (query: any) => {
+  return query
+  .populate({path: 'organizer', model:User, select:'_id firstName lastName'})
+  .populate({path: 'category', model:Category, select:'_id name'});
+}
 export const createCampaign = async ({
   campaign,
   userId,
@@ -30,3 +37,18 @@ export const createCampaign = async ({
     handleError(error);
   }
 };
+
+
+export const getCampaignById = async(campaignId: string) => {
+  try{
+    await connectToDatabase();
+    const campaign = await populateCampaign(Campaign.findById(campaignId));
+
+    if(!campaign){
+      throw new Error("Campaign not found");
+    }
+    return JSON.parse(JSON.stringify(campaign))
+  }
+  catch(error){}
+
+}
