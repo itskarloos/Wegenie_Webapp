@@ -65,7 +65,7 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
         });
         if (newCampaign) {
           form.reset();
-          router.push(`/campaings/${newCampaign._id}`);
+          router.push(`/campaigns/${newCampaign._id}`);
         }
       } catch (error) {
         console.log(error);
