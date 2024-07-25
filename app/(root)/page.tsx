@@ -1,10 +1,13 @@
 import Collection from "@/components/shared/Collection";
 import { Button } from "@/components/ui/button";
+import { getAllCampaigns } from "@/lib/actions/campaign.actions";
 import { DESTRUCTION } from "dns";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const campaigns = await getAllCampaigns({query:'', category:'',page:1,limit:6});
+  console.log(campaigns);
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
