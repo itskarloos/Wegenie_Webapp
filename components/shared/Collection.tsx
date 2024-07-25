@@ -22,6 +22,7 @@ const Collection = ({
   collectionType,
   urlParamName,
 }: CollectionProps) => {
+  console.log("Collection page data :" + data)
   return (
     <>
       {data.length > 0 ? (
@@ -30,7 +31,7 @@ const Collection = ({
             {data.map((campaign) => {
               const hasOrderLink = collectionType === 'Campaigns_Organized';
               const hidePrice = collectionType === 'My_Campaign';
-              console.log("Collection page" + campaign)
+              
             
               return (
                 <li key={campaign._id} className="flex justify-center">
