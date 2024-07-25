@@ -22,7 +22,7 @@ const Collection = ({
   collectionType,
   urlParamName,
 }: CollectionProps) => {
-  console.log("Collection page data :" + data)
+
   return (
     <>
       {data.length > 0 ? (

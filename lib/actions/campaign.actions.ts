@@ -72,5 +72,7 @@ export const getAllCampaigns = async ({
     return {
       data:JSON.parse(JSON.stringify(campaigns)),
       totalPages: Math.ceil(campaignsCount / limit)};
-  } catch (error) {}
+  } catch (error) {
+    handleError(error)
+  }
 };
