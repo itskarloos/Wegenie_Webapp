@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default async function Home() {
   const campaigns = await getAllCampaigns({query:'', category:'',page:1,limit:6});
-  console.log(campaigns);
+
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
