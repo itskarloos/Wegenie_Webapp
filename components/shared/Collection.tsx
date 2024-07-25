@@ -8,7 +8,7 @@ type CollectionProps = {
   limit: number,
   page: number | string,
   totalPages: number,
-  collectionType: string,
+  collectionType?: 'Campaign_Organized' | 'My_Campaign' | 'All_Campaigns',
   urlParamName?: string,
 }
 

@@ -33,7 +33,7 @@ export type CreateUserParams = {
     path: string
   }
   
-  export type UpdateEventParams = {
+  export type UpdateCampaignParams = {
     userId: string
     event: {
       _id: string
@@ -51,12 +51,12 @@ export type CreateUserParams = {
     path: string
   }
   
-  export type DeleteEventParams = {
+  export type DeleteCampaignParams = {
     eventId: string
     path: string
   }
   
-  export type GetAllEventsParams = {
+  export type GetAllCampaignsParams = {
     query: string
     category: string
     limit: number

@@ -42,7 +42,7 @@ export default function Home() {
         data={[]}
         emptyTitle="No campaigns found"
         emptyStateSubtext="Come back later"
-        collectionType="All_Events"
+        collectionType="All_Campaigns"
         limit={6}
         page={1}
         totalPages={2}

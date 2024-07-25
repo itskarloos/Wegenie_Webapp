@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateCampaignParams } from "@/types";
+import { CreateCampaignParams, GetAllCampaignsParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
@@ -52,3 +52,25 @@ export const getCampaignById = async(campaignId: string) => {
   catch(error){}
 
 }
+
+
+export const getAllCampaigns = async ({
+  query,
+  limit = 6,
+  page,
+  category,
+}: GetAllCampaignsParams) => {
+  try {
+    await connectToDatabase();
+    const conditions = {};
+    const campaignQuery = Campaign.find(conditions)
+      .sort({ createdAt: "desc" })
+      .skip(0)
+      .limit(limit);
+    const campaigns = await populateCampaign(campaignQuery)
+    const campaignsCount = await Campaign.countDocuments(conditions)
+    return {
+      data:JSON.parse(JSON.stringify(campaigns)),
+      totalPages: Math.ceil(campaignsCount / limit)};
+  } catch (error) {}
+};
