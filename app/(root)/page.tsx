@@ -1,3 +1,4 @@
+import Collection from "@/components/shared/Collection";
 import { Button } from "@/components/ui/button";
 import { DESTRUCTION } from "dns";
 import Image from "next/image";
@@ -34,9 +35,18 @@ export default function Home() {
           <br /> various campaign
         </h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          Search
+          
           catagorie
         </div>
+        <Collection
+        data={[]}
+        emptyTitle="No campaigns found"
+        emptyStateSubtext="Come back later"
+        collectionType="All_Events"
+        limit={6}
+        page={1}
+        totalPages={2}
+        />
       </section>
     </>
   );
