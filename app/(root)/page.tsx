@@ -42,7 +42,7 @@ export default async function Home() {
           catagorie
         </div>
         <Collection
-        data={[campaigns?.data]}
+        data={campaigns?.data}
         emptyTitle="No campaigns found"
         emptyStateSubtext="Come back later"
         collectionType="All_Campaigns"
