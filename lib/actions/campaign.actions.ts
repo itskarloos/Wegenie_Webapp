@@ -76,3 +76,8 @@ export const getAllCampaigns = async ({
     handleError(error)
   }
 };
+
+export const deleteCampagin = async (campaignId: string) => {
+  try{}
+  catch(error){}
+}
