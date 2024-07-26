@@ -7,7 +7,7 @@ type CardProps = {
   hidePrice?: boolean
 }
 const Card = ( {campaign,hasOrderLink,hidePrice} : CardProps) => {
-
+console.log(campaign)
   return (
     <div className='group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]'>
       <Link 
