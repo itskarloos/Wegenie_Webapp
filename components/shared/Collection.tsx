@@ -3,14 +3,14 @@ import React from "react";
 import Card from "./Card";
 
 type CollectionProps = {
-  data: ICampaign[];
-  emptyTitle: string;
-  emptyStateSubtext: string;
-  limit: number;
-  page: number | string;
-  totalPages: number;
-  collectionType?: "Campaigns_Organized" | "My_Campaign" | "All_Campaigns";
-  urlParamName?: string;
+  data: ICampaign[],
+  emptyTitle: string,
+  emptyStateSubtext: string,
+  limit: number,
+  page: number | string,
+  totalPages: number,
+  collectionType?: "Campaigns_Organized" | "My_Campaign" | "All_Campaigns",
+  urlParamName?: string,
 };
 
 const Collection = ({
