@@ -1,11 +1,12 @@
 "use server";
 
-import { CreateCampaignParams, GetAllCampaignsParams } from "@/types";
+import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
 import Campaign from "../database/models/campaign.model";
 import Category from "../database/models/category.model";
+import { revalidatePath } from "next/cache";
 
 
 const populateCampaign = async (query: any) => {
@@ -77,7 +78,13 @@ export const getAllCampaigns = async ({
   }
 };
 
-export const deleteCampagin = async (campaignId: string) => {
-  try{}
-  catch(error){}
+export const deleteCampaign = async ({campaignId,path}: DeleteCampaignParams) => {
+  try{
+    await connectToDatabase();
+    const deletedCampaign = await Campaign.findByIdAndDelete(campaignId);
+    if(deletedCampaign) revalidatePath(path)
+  }
+  catch(error){
+    handleError(error)
+  }
 }

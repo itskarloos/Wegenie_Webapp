@@ -52,7 +52,7 @@ export type CreateUserParams = {
   }
   
   export type DeleteCampaignParams = {
-    eventId: string
+    campaignId: string
     path: string
   }
   
