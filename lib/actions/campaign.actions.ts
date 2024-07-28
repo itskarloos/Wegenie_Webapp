@@ -89,7 +89,7 @@ export const deleteCampaign = async ({campaignId,path}: DeleteCampaignParams) =>
   }
 }
 
-export async function updateCampaign({ userId, campaign, path }: UpdateEventParams) {
+export async function updateCampaign({ userId, campaign, path }: UpdateCampaignParams) {
   try {
     await connectToDatabase()
 
