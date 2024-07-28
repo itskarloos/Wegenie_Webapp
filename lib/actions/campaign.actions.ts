@@ -1,8 +1,8 @@
 "use server";
 
-import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams } from "@/types";
+import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,UpdateCampaignParams } from "@/types";
 import { handleError } from "../utils";
-import { connectToDatabase } from "../database";
+import { connectToDatabase } from "../database"; 
 import User from "../database/models/user.model";
 import Campaign from "../database/models/campaign.model";
 import Category from "../database/models/category.model";
