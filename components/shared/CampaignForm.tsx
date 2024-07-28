@@ -25,7 +25,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "../ui/checkbox";
 import { useUploadThing } from '@/lib/uploadthing'
 import { useRouter } from "next/navigation";
-import { createCampaign } from "@/lib/actions/campaign.actions";
+import { createCampaign, updateCampaign } from "@/lib/actions/campaign.actions";
 import { ICampaign } from "@/lib/database/models/campaign.model"
 type CampaignFormProps = {
   userId: string
