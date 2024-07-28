@@ -5,7 +5,7 @@ import { getCampaignById } from "@/lib/actions/campaign.actions";
 
 type updateCampaignProps={
   params: {
-    id:string,
+    id:string
   }
 }
 const UpdateCampaign = async({params: {id}}: updateCampaignProps) => {

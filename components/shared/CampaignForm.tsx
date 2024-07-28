@@ -37,7 +37,7 @@ type CampaignFormProps = {
 
 const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) => {
   const [files, setfiles] = useState<File[]>([]);
-  const initialValues = campaign&& type === "Update"? {...campaign,startDateTime: new Date(campaign.startDateTime),endDateTime: new Date(campaign.endDateTime)}:CampaignDefaultValues;
+  const initialValues = campaign && type === "Update"? {...campaign,startDateTime: new Date(campaign.startDateTime),endDateTime: new Date(campaign.endDateTime)}:CampaignDefaultValues;
   const router = useRouter();
   const { startUpload } = useUploadThing('imageUploader');
 
