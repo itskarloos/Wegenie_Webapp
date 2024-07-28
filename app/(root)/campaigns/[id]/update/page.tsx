@@ -13,7 +13,7 @@ const UpdateCampaign = async({ params: { id } }: UpdateCampaignProps) => {
     const {sessionClaims} = auth();
     const userId = sessionClaims?.userId as string;
     const campaign = await getCampaignById(id)
-    console.log("Update campaign : ", campaign)
+    console.log("Update campaignId : ", id)
   return (
     <>
     <section className = "bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
