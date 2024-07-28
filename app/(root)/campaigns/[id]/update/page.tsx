@@ -3,12 +3,12 @@ import { auth } from '@clerk/nextjs/server';
 import React from 'react'
 import { getCampaignById } from "@/lib/actions/campaign.actions";
 
-type updateCampaignProps={
+type UpdateCampaignProps={
   params: {
     id:string
   }
 }
-const UpdateCampaign = async({params: {id}}: updateCampaignProps) => {
+const UpdateCampaign = async({ params: { id } }: UpdateCampaignProps) => {
 
     const {sessionClaims} = auth();
     const userId = sessionClaims?.userId as string;
