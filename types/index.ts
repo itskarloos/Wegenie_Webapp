@@ -35,7 +35,7 @@ export type CreateUserParams = {
   
   export type UpdateCampaignParams = {
     userId: string
-    event: {
+    campaign: {
       _id: string
       title: string
       imageUrl: string
