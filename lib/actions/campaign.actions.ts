@@ -88,3 +88,25 @@ export const deleteCampaign = async ({campaignId,path}: DeleteCampaignParams) =>
     handleError(error)
   }
 }
+
+export async function updateCampaign({ userId, campaign, path }: UpdateEventParams) {
+  try {
+    await connectToDatabase()
+
+    const eventToUpdate = await Campaign.findById(campaign._id)
+    if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
+      throw new Error('Unauthorized or event not found')
+    }
+
+    const updatedCampaign = await Campaign.findByIdAndUpdate(
+      campaign._id,
+      { ...campaign, category: campaign.categoryId },
+      { new: true }
+    )
+    revalidatePath(path)
+
+    return JSON.parse(JSON.stringify(updatedCampaign))
+  } catch (error) {
+    handleError(error)
+  }
+}

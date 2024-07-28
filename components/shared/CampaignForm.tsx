@@ -28,12 +28,16 @@ import { useRouter } from "next/navigation";
 import { createCampaign } from "@/lib/actions/campaign.actions";
 
 type CampaignFormProps = {
-  userId: string;
-  type: "Create" | "Update";
+  userId: string
+  type: "Create" | "Update"
+  campaign?: ICampaign
+  campaignId?: string
 };
-const CampaignForm = ({ userId, type }: CampaignFormProps) => {
+
+
+const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) => {
   const [files, setfiles] = useState<File[]>([]);
-  const initialValues = CampaignDefaultValues;
+  const initialValues = campaign&& type === "Update"? {...campaign,startDateTime: new Date(campaign.startDateTime),endDateTime: new Date(campaign.endDateTime)}:CampaignDefaultValues;
   const router = useRouter();
   const { startUpload } = useUploadThing('imageUploader');
 
@@ -66,6 +70,21 @@ const CampaignForm = ({ userId, type }: CampaignFormProps) => {
         if (newCampaign) {
           form.reset();
           router.push(`/campaigns/${newCampaign._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if(type === 'Update'){
+      try {
+        const updatedCampaign = await updateCampaign({
+          userId,
+          campaign:{...values,imageUrl: uploadedImageUrl,_id: campaignId},
+          path: `/campaigns/${campaignId}`
+        });
+        if (updatedCampaign) {
+          form.reset();
+          router.push(`/campaigns/${updateCampaign._id}`);
         }
       } catch (error) {
         console.log(error);
