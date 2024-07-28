@@ -30,7 +30,7 @@ import { ICampaign } from "@/lib/database/models/campaign.model"
 type CampaignFormProps = {
   userId: string
   type: "Create" | "Update"
-  campaign?: ICampaign
+  campaign?: ICampaign,
   campaignId?: string
 };
 
