@@ -93,9 +93,9 @@ export async function updateCampaign({ userId, campaign, path }: UpdateCampaignP
   try {
     await connectToDatabase()
 
-    const eventToUpdate = await Campaign.findById(campaign._id)
-    if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
-      throw new Error('Unauthorized or event not found')
+    const campaignToUpdate = await Campaign.findById(campaign._id)
+    if (!campaignToUpdate || campaignToUpdate.organizer.toHexString() !== userId) {
+      throw new Error('Unauthorized or campaign not found')
     }
 
     const updatedCampaign = await Campaign.findByIdAndUpdate(

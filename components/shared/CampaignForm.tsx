@@ -77,11 +77,19 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
     }
     if(type === 'Update'){
       try {
-        const updatedCampaign = await updateCampaign({
-          userId,
-          campaign:{...values,imageUrl: uploadedImageUrl,_id: campaignId},
-          path: `/campaigns/${campaignId}`
-        });
+        
+          const updatedCampaign = await updateCampaign({
+            userId,
+            campaign: {
+              ...values,
+              imageUrl: uploadedImageUrl,
+              _id: campaignId
+            },
+            path: `/campaigns/${campaignId}`
+          });
+          
+
+  
         if (updatedCampaign) {
           form.reset();
           router.push(`/campaigns/${updatedCampaign._id}`);
