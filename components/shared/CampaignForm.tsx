@@ -84,7 +84,7 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
         });
         if (updatedCampaign) {
           form.reset();
-          router.push(`/campaigns/${updateCampaign._id}`);
+          router.push(`/campaigns/${updatedCampaign._id}`);
         }
       } catch (error) {
         console.log(error);
