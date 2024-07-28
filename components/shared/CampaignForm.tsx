@@ -31,7 +31,7 @@ type CampaignFormProps = {
   userId: string
   type: "Create" | "Update"
   campaign?: ICampaign,
-  campaignId: string
+  campaignId?: string
 };
 
 
