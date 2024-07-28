@@ -26,7 +26,7 @@ import { Checkbox } from "../ui/checkbox";
 import { useUploadThing } from '@/lib/uploadthing'
 import { useRouter } from "next/navigation";
 import { createCampaign } from "@/lib/actions/campaign.actions";
-
+import { ICampaign } from "@/lib/database/models/campaign.model"
 type CampaignFormProps = {
   userId: string
   type: "Create" | "Update"
