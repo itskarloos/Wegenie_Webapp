@@ -8,7 +8,7 @@ type UpdateCampaignProps={
     id:string
   }
 }
-const UpdateCampaign = async({ params: { id } }: UpdateCampaignProps) => {
+const UpdateCampaign = async ({ params: { id } }: UpdateCampaignProps) => {
 
     const {sessionClaims} = auth();
     const userId = sessionClaims?.userId as string;
@@ -27,3 +27,5 @@ const UpdateCampaign = async({ params: { id } }: UpdateCampaignProps) => {
 }
 
 export default UpdateCampaign
+
+
