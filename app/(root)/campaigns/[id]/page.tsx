@@ -9,7 +9,7 @@ const CampaignDetails = async ({ params: { id } }: SearchParamProps) => {
   console.log("Campaign details id :",id)
   return (
     <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
-      <div className="grid gird-cols-1 md:grid-cols-2 2xl:max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
         <Image
           src={campaign.imageUrl}
           alt="hero image"
