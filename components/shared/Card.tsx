@@ -25,7 +25,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
       />
       {isCampaignCreator && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
-          <Link href={'/campaigns/${campaign._id}/update'} > 
+          <Link href={`/campaigns/${campaign._id}/update`} > 
           <Image src="/assets/icons/edit.svg" alt="edit" width={20} height={20}/>
           </Link>
           <DeleteConfirmation campaignId={campaign._id}/>

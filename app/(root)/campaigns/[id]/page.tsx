@@ -6,7 +6,7 @@ import React from "react";
 
 const CampaignDetails = async ({ params: { id } }: SearchParamProps) => {
   const campaign = await getCampaignById(id);
-  console.log(campaign)
+  console.log("Campaign details id :",id)
   return (
     <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
       <div className="grid gird-col-1 md:grid-cols-2 2xl:max-w-7xl">
