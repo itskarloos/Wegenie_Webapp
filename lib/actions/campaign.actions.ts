@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,UpdateCampaignParams } from "@/types";
+import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,GetRelatedCampaignsByCategoryParams,UpdateCampaignParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database"; 
 import User from "../database/models/user.model";
@@ -106,6 +106,31 @@ export async function updateCampaign({ userId, campaign, path }: UpdateCampaignP
     revalidatePath(path)
 
     return JSON.parse(JSON.stringify(updatedCampaign))
+  } catch (error) {
+    handleError(error)
+  }
+}
+export async function getRelatedCampaignsByCategory({
+  categoryId,
+  campaignId,
+  limit = 3,
+  page = 1,
+}: GetRelatedCampaignsByCategoryParams) {
+  try {
+    await connectToDatabase()
+
+    const skipAmount = (Number(page) - 1) * limit
+    const conditions = { $and: [{ category: categoryId }, { _id: { $ne: campaignId } }] }
+
+    const eventsQuery = Campaign.find(conditions)
+      .sort({ createdAt: 'desc' })
+      .skip(skipAmount)
+      .limit(limit)
+
+    const campaigns = await populateCampaign(eventsQuery)
+    const campaignsCount = await Campaign.countDocuments(conditions)
+
+    return { data: JSON.parse(JSON.stringify(campaigns)), totalPages: Math.ceil(campaignsCount / limit) }
   } catch (error) {
     handleError(error)
   }

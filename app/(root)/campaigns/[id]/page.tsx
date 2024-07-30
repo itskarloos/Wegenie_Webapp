@@ -1,13 +1,19 @@
-import { getCampaignById } from "@/lib/actions/campaign.actions";
+import Collection from "@/components/shared/Collection";
+import { getCampaignById, getRelatedCampaignsByCategory } from "@/lib/actions/campaign.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-const CampaignDetails = async ({ params: { id } }: SearchParamProps) => {
+const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProps) => {
   const campaign = await getCampaignById(id);
-  console.log("Campaign details id :",id)
+  const relatedCampaigns = await getRelatedCampaignsByCategory({
+    categoryId: campaign.category._id,
+    campaignId: campaign._id,
+    page: searchParams.page as string,}
+  )
   return (
+    <>
     <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
         <Image
@@ -74,6 +80,19 @@ const CampaignDetails = async ({ params: { id } }: SearchParamProps) => {
         </div>
       </div>
     </section>
+    <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+      <h2 className="h2-bold">Related Campaign</h2>
+      <Collection
+        data={relatedCampaigns?.data}
+        emptyTitle="No campaigns found"
+        emptyStateSubtext="Come back later"
+        collectionType="All_Campaigns"
+        limit={6}
+        page={1}
+        totalPages={2}
+        />
+    </section>
+    </>
   );
 };
 

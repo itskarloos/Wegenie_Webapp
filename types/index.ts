@@ -63,20 +63,20 @@ export type CreateUserParams = {
     page: number
   }
   
-  export type GetEventsByUserParams = {
+  export type GetCampaignsByUserParams = {
     userId: string
     limit?: number
     page: number
   }
   
-  export type GetRelatedEventsByCategoryParams = {
+  export type GetRelatedCampaignsByCategoryParams = {
     categoryId: string
-    eventId: string
+    campaignId: string
     limit?: number
     page: number | string
   }
   
-  export type Event = {
+  export type Campaign = {
     _id: string
     title: string
     description: string
