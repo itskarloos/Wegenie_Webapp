@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,GetRelatedCampaignsByCategoryParams,UpdateCampaignParams } from "@/types";
+import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,GetCampaignsByUserParams,GetRelatedCampaignsByCategoryParams,UpdateCampaignParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database"; 
 import User from "../database/models/user.model";
@@ -128,6 +128,26 @@ export async function getRelatedCampaignsByCategory({
       .limit(limit)
 
     const campaigns = await populateCampaign(eventsQuery)
+    const campaignsCount = await Campaign.countDocuments(conditions)
+
+    return { data: JSON.parse(JSON.stringify(campaigns)), totalPages: Math.ceil(campaignsCount / limit) }
+  } catch (error) {
+    handleError(error)
+  }
+}
+export async function getCampaignsByUser({ userId, limit = 6, page }: GetCampaignsByUserParams) {
+  try {
+    await connectToDatabase()
+
+    const conditions = { organizer: userId }
+    const skipAmount = (page - 1) * limit
+
+    const campaignsQuery = Campaign.find(conditions)
+      .sort({ createdAt: 'desc' })
+      .skip(skipAmount)
+      .limit(limit)
+
+    const campaigns = await populateCampaign(campaignsQuery)
     const campaignsCount = await Campaign.countDocuments(conditions)
 
     return { data: JSON.parse(JSON.stringify(campaigns)), totalPages: Math.ceil(campaignsCount / limit) }

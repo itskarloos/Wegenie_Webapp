@@ -9,7 +9,7 @@ type CollectionProps = {
   limit: number,
   page: number | string,
   totalPages: number,
-  collectionType?: "Campaigns_Organized" | "My_Campaign" | "All_Campaigns",
+  collectionType?: "Campaigns_Organized" | "Campaigns_Created" | "All_Campaigns",
   urlParamName?: string,
 };
 
@@ -30,7 +30,7 @@ const Collection = ({
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
             {data.map((campaign) => {
               const hasOrderLink = collectionType === 'Campaigns_Organized';
-              const hidePrice = collectionType === 'My_Campaign';
+              const hidePrice = collectionType === 'Campaigns_Created';
               
             
               return (
