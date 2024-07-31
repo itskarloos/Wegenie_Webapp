@@ -55,7 +55,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
             <p className="p-medium-14 md:p-medium-16 text-grey-600">
               {campaign.organizer.firstName} {campaign.organizer.lastName}
             </p>
-            {hasOrderLink &&(<Link href={'/orders?campaignId=${campaign._id}'} className="flex gap-2">
+            {hasOrderLink &&(<Link href={`/orders?campaignId=${campaign._id}`} className="flex gap-2">
               <p className="text-primary-500">Order Details</p>
               <Image src="/assets/icons/arrow.svg" height={10} width={10} alt="Search"/>
             </Link>)}
