@@ -50,7 +50,7 @@ const ProfilePage = async () => {
         data={organizedCampaigns?.data}
         emptyTitle="No campaigns created"
         emptyStateSubtext="Create and fundraise for the right cause"
-        collectionType="Campaigns_Created"
+        collectionType="Campaigns_Organized"
         urlParamName='campaignsPage'
         limit={6}
         page={1}
