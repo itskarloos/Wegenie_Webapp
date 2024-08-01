@@ -1,3 +1,4 @@
+import CheckoutButton from "@/components/shared/CheckoutButton";
 import Collection from "@/components/shared/Collection";
 import { getCampaignById, getRelatedCampaignsByCategory } from "@/lib/actions/campaign.actions";
 import { formatDateTime } from "@/lib/utils";
@@ -44,7 +45,11 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
             </div>
           </div>
 
-          {/* Checkout Button*/}
+          <CheckoutButton />
+
+
+
+
 
           <div className="flex flex-col gap-5">
             <div className="flex gap-2 md:gap-3">

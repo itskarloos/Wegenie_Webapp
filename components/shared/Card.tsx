@@ -32,8 +32,8 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         </div>
 
       )}
-      <Link
-        href={`/campaigns/${campaign._id}`}
+      <div
+        
         className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4"
       >
         {!hidePrice && (
@@ -50,7 +50,8 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         <p className="p-medium-16 md:p-medium-18 text-grey-500">
             {formatDateTime(campaign.startDateTime).dateTime}
           </p>
-          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p>
+          <Link href={`/campaigns/${campaign._id}`}>
+          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p></Link>
           <div className="flex-between w-full">
             <p className="p-medium-14 md:p-medium-16 text-grey-600">
               {campaign.organizer.firstName} {campaign.organizer.lastName}
@@ -60,7 +61,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
               <Image src="/assets/icons/arrow.svg" height={10} width={10} alt="Search"/>
             </Link>)}
           </div>
-      </Link>
+      </div>
     </div>
   );
 };
