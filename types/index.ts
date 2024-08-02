@@ -105,8 +105,8 @@ export type CreateUserParams = {
   
   // ====== ORDER PARAMS
   export type CheckoutOrderParams = {
-    eventTitle: string
-    eventId: string
+    campaignTitle: string
+    campaignId: string
     price: string
     isFree: boolean
     buyerId: string

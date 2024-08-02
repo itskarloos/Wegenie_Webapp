@@ -2,6 +2,7 @@ import { ICampaign } from '@/lib/database/models/campaign.model'
 import React, { useEffect } from 'react'
 import { Button } from '../ui/button';
 import { loadStripe } from '@stripe/stripe-js';
+import { checkoutOrder } from '@/lib/actions/order.actions';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -25,7 +26,15 @@ const Checkout = ({campaign,userId}: {campaign:ICampaign,userId: string}) => {
 
 
   const onCheckout = async() =>{
-    console.log("CheckOut");
+
+    const order={
+      campaignTitle: campaign.title,
+      campaignId: campaign._id,
+      price: campaign.price,
+      isFree: campaign.isFree,
+      buyerId: userId
+    }
+    await checkoutOrder(order);
   }
   return (
     <form action={onCheckout} method="post">
