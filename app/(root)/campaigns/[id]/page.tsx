@@ -45,7 +45,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
             </div>
           </div>
 
-          <CheckoutButton />
+          <CheckoutButton campaing={campaign}/>
 
 
 
