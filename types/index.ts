@@ -120,8 +120,8 @@ export type CreateUserParams = {
     createdAt: Date
   }
   
-  export type GetOrdersByEventParams = {
-    eventId: string
+  export type GetOrdersByCampaignParams = {
+    campaignId: string
     searchString: string
   }
   
