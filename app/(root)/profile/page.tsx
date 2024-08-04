@@ -27,7 +27,7 @@ const ProfilePage = async () => {
       </section>
       <section className="wrapper my-8">
       <Collection
-        data={orderedCampaign?.data}
+        data={orderedCampaign}
         emptyTitle="No campaign contribution"
         emptyStateSubtext="Explore and donate for the right cause"
         collectionType="My_Donation"
