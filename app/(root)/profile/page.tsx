@@ -1,6 +1,8 @@
 import Collection from '@/components/shared/Collection'
 import { Button } from '@/components/ui/button'
 import { getCampaignsByUser } from '@/lib/actions/campaign.actions'
+import { getOrdersByUser } from '@/lib/actions/order.actions'
+import { IOrder } from '@/lib/database/models/order.model'
 import { auth } from '@clerk/nextjs/server'
 import Link from 'next/link'
 import React from 'react'
@@ -9,6 +11,8 @@ const ProfilePage = async () => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
   const organizedCampaigns = await getCampaignsByUser({userId,page:1})
+  const orders = await getOrdersByUser({userId,page:1})
+  const orderedCampaign = orders?.data.map((order: IOrder)=>order.campaign || [])
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
@@ -21,9 +25,9 @@ const ProfilePage = async () => {
           </Button>
         </div>
       </section>
-      {/* <section className="wrapper my-8">
+      <section className="wrapper my-8">
       <Collection
-        data={campaigns?.data}
+        data={orderedCampaign?.data}
         emptyTitle="No campaign contribution"
         emptyStateSubtext="Explore and donate for the right cause"
         collectionType="My_Donation"
@@ -32,7 +36,7 @@ const ProfilePage = async () => {
         page={1}
         totalPages={2}
         />
-      </section> */}
+      </section> 
 
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex items-center justify-center sm:justify-between">

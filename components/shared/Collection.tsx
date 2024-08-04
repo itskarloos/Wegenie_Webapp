@@ -9,7 +9,7 @@ type CollectionProps = {
   limit: number,
   page: number | string,
   totalPages: number,
-  collectionType?: "Campaigns_Organized" | "Campaigns_Created" | "All_Campaigns",
+  collectionType?: "Campaigns_Organized" | "Campaigns_Created" | "All_Campaigns" | "My_Donation",
   urlParamName?: string,
 };
 

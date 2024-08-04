@@ -126,7 +126,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
     const skipAmount = (Number(page) - 1) * limit
     const conditions = { buyer: userId }
 
-    const orders = await Order.distinct('event._id')
+    const orders = await Order.distinct('campaign._id')
       .find(conditions)
       .sort({ createdAt: 'desc' })
       .skip(skipAmount)
