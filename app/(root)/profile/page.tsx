@@ -10,9 +10,9 @@ import React from 'react'
 const ProfilePage = async () => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
-  const organizedCampaigns = await getCampaignsByUser({userId,page:1})
-  const orders = await getOrdersByUser({userId,page:1})
-  const orderedCampaign = orders?.data.map((order: IOrder)=>order.campaign || [])
+  const organizedCampaigns = await getCampaignsByUser({ userId, page: 1 })
+  const orders = await getOrdersByUser({ userId, page: 1 })
+  const orderedCampaign = orders?.data.map((order: IOrder) => order.campaign || [])
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
@@ -26,17 +26,17 @@ const ProfilePage = async () => {
         </div>
       </section>
       <section className="wrapper my-8">
-      <Collection
-        data={orderedCampaign}
-        emptyTitle="No campaign contribution"
-        emptyStateSubtext="Explore and donate for the right cause"
-        collectionType="My_Donation"
-        urlParamName='donatedPage'
-        limit={2}
-        page={1}
-        totalPages={2}
+        <Collection
+          data={orderedCampaign}
+          emptyTitle="No campaign contribution"
+          emptyStateSubtext="Explore and donate for the right cause"
+          collectionType="My_Donation"
+          urlParamName='donatedPage'
+          limit={2}
+          page={1}
+          totalPages={2}
         />
-      </section> 
+      </section>
 
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex items-center justify-center sm:justify-between">
@@ -50,17 +50,17 @@ const ProfilePage = async () => {
       </section>
 
       <section className="wrapper my-8">
-      <Collection
-        data={organizedCampaigns?.data}
-        emptyTitle="No campaigns created"
-        emptyStateSubtext="Create and fundraise for the right cause"
-        collectionType="Campaigns_Organized"
-        urlParamName='campaignsPage'
-        limit={6}
-        page={1}
-        totalPages={2}
+        <Collection
+          data={organizedCampaigns?.data}
+          emptyTitle="No campaigns created"
+          emptyStateSubtext="Create and fundraise for the right cause"
+          collectionType="Campaigns_Organized"
+          urlParamName='campaignsPage'
+          limit={6}
+          page={1}
+          totalPages={2}
         />
-      </section> 
+      </section>
     </>
   )
 }
