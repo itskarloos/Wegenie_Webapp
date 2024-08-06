@@ -8,7 +8,7 @@ type CollectionProps = {
   emptyStateSubtext: string,
   limit: number,
   page: number | string,
-  totalPages: number,
+  totalPages?: number,
   collectionType?: "Campaigns_Organized" | "Campaigns_Created" | "All_Campaigns" | "My_Donation",
   urlParamName?: string,
 };
