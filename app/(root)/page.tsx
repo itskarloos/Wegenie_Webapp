@@ -1,4 +1,5 @@
 import Collection from "@/components/shared/Collection";
+import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllCampaigns } from "@/lib/actions/campaign.actions";
 import { DESTRUCTION } from "dns";
@@ -38,7 +39,7 @@ export default async function Home() {
           <br /> various campaign
         </h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          
+          <Search />
           catagorie
         </div>
         <Collection
