@@ -11,7 +11,7 @@ export default async function Home({searchParams}: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || ''
   const category = (searchParams?.category as string) || ''
-  const campaigns = await getAllCampaigns({ query: searchText, category: '', page: 1, limit: 6 });
+  const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
   return (
     <>
