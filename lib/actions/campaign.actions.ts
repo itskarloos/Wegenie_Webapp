@@ -9,6 +9,12 @@ import Category from "../database/models/category.model";
 import { revalidatePath } from "next/cache";
 
 
+const getCategoryByName = async (name: string) => {
+  return Category.findOne({ name: { $regex: name, $options: 'i' } })
+}
+
+
+
 const populateCampaign = async (query: any) => {
   return query
   .populate({path: 'organizer', model:User, select:'_id firstName lastName'})
@@ -63,18 +69,31 @@ export const getAllCampaigns = async ({
 }: GetAllCampaignsParams) => {
   try {
     await connectToDatabase();
-    const conditions = {};
+    const titleCondition = query
+      ? { title: { $regex: query, $options: "i" } }
+      : {};
+    const categoryCondition = category
+      ? await getCategoryByName(category)
+      : null;
+    const conditions = {
+      $and: [
+        titleCondition,
+        categoryCondition ? { category: categoryCondition._id } : {},
+      ],
+    };
+    const skipAmount = (Number(page) - 1) * limit;
     const campaignQuery = Campaign.find(conditions)
       .sort({ createdAt: "desc" })
-      .skip(0)
+      .skip(skipAmount)
       .limit(limit);
-    const campaigns = await populateCampaign(campaignQuery)
-    const campaignsCount = await Campaign.countDocuments(conditions)
+    const campaigns = await populateCampaign(campaignQuery);
+    const campaignsCount = await Campaign.countDocuments(conditions);
     return {
-      data:JSON.parse(JSON.stringify(campaigns)),
-      totalPages: Math.ceil(campaignsCount / limit)};
+      data: JSON.parse(JSON.stringify(campaigns)),
+      totalPages: Math.ceil(campaignsCount / limit),
+    };
   } catch (error) {
-    handleError(error)
+    handleError(error);
   }
 };
 
