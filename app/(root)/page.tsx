@@ -2,13 +2,17 @@ import Collection from "@/components/shared/Collection";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllCampaigns } from "@/lib/actions/campaign.actions";
+import { SearchParamProps } from "@/types";
 import { DESTRUCTION } from "dns";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home() {
-  const campaigns = await getAllCampaigns({query:'', category:'',page:1,limit:6});
- 
+export default async function Home({searchParams}: SearchParamProps) {
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || ''
+  const category = (searchParams?.category as string) || ''
+  const campaigns = await getAllCampaigns({ query: searchText, category: '', page: 1, limit: 6 });
+
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
@@ -43,13 +47,13 @@ export default async function Home() {
           catagorie
         </div>
         <Collection
-        data={campaigns?.data}
-        emptyTitle="No campaigns found"
-        emptyStateSubtext="Come back later"
-        collectionType="All_Campaigns"
-        limit={6}
-        page={1}
-        totalPages={2}
+          data={campaigns?.data}
+          emptyTitle="No campaigns found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Campaigns"
+          limit={6}
+          page={1}
+          totalPages={2}
         />
       </section>
     </>
