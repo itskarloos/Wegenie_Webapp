@@ -32,27 +32,29 @@ const CategoryFilter = () => {
       
     // useEffect(()=>{
     //     const delayDebounceFn = setTimeout(()=>{
-    //         let newUrl= '';
-    //         if(categories){
-    //              newUrl = formUrlQuery({
-    //                 params: searchParams.toString(),
-    //                 key: 'categories',
-    //                 value: categories
-    //             })
-    //         }
-    //         else {
-    //             newUrl= removeKeysFromQuery({
-    //                 params: searchParams.toString(),
-    //                 keysToRemove: ['categories']
-    //             })
-    //         }
-    //         router.push(newUrl,{scroll: false})
-    //     },300)
+            
     //     return ()=> clearTimeout(delayDebounceFn);
 
     // },[categories,searchParams,router])
 
-    const onSubmitCategory = (category: string)=>{}
+    const onSubmitCategory = (category: string)=>{
+        let newUrl= '';
+            if(category && category !== 'All'){
+                 newUrl = formUrlQuery({
+                    params: searchParams.toString(),
+                    key: 'category',
+                    value: category
+                })
+            }
+            else {
+                newUrl= removeKeysFromQuery({
+                    params: searchParams.toString(),
+                    keysToRemove: ['category']
+                })
+            }
+            router.push(newUrl,{scroll: false})
+        }
+    
     
   return (
     <Select onValueChange={(value:string)=>onSubmitCategory(value)}>
