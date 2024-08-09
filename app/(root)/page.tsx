@@ -54,8 +54,8 @@ export default async function Home({searchParams}: SearchParamProps) {
           emptyStateSubtext="Come back later"
           collectionType="All_Campaigns"
           limit={6}
-          page={1}
-          totalPages={2}
+          page={page}
+          totalPages={campaigns?.totalPages}
         />
       </section>
     </>
