@@ -1,6 +1,7 @@
 import { ICampaign } from "@/lib/database/models/campaign.model";
 import React from "react";
 import Card from "./Card";
+import Pagination from "./Pagination";
 
 type CollectionProps = {
   data: ICampaign[],
@@ -40,6 +41,8 @@ const Collection = ({
               )
             })}
           </ul>
+          {totalPages > 0 &&
+          (<Pagination urlParamName={urlParamName} page={page} totalPages={totalPages} />) }
 
         </div>
       ): (
