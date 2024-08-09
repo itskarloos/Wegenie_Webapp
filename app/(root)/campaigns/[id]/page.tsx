@@ -38,7 +38,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
               </div>
               <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
-                <span className="text-primary-500">
+                <span className="text-green-700">
                   {campaign.organizer.firstName} {campaign.organizer.lastName}
                 </span>
               </p>
@@ -80,7 +80,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
           <div className="flex flex-col gap-2">
             <p className="p-bold-20 text-grey-600">Description:</p>
             <p className="p-medium-16 lg:p-regular-18">{campaign.description}</p>
-            <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">{campaign.url}</p>
+            <p className="p-medium-16 lg:p-regular-18 truncate text-green-700 underline">{campaign.url}</p>
           </div> 
         </div>
       </div>
