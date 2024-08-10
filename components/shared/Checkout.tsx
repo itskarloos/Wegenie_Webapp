@@ -50,12 +50,13 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
   }
   return (
     <form action={onCheckout} method="post">
-      <Button type="submit" role="link" size="lg" className="button sm:w-fit">
+      {/* <Button type="submit" role="link" size="lg" className="button sm:w-fit">
         {campaign.isFree? ("Contribute"):("Donate")}
-      </Button>
+      </Button> */}
 
-      {/* <Drawer>
-        <DrawerTrigger>Donate</DrawerTrigger>
+
+      <Drawer>
+        <DrawerTrigger className="button sm:w-fit" >Donate</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Are you absolutely sure?</DrawerTitle>
@@ -68,7 +69,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
             </DrawerClose>
           </DrawerFooter>
         </DrawerContent>
-      </Drawer> */}
+      </Drawer> 
 
 
 
