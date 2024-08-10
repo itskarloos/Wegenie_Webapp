@@ -109,6 +109,7 @@ export type CreateUserParams = {
     campaignId: string
     price: string
     isFree: boolean
+    donatedAmount: string
     buyerId: string
   }
   
@@ -118,6 +119,7 @@ export type CreateUserParams = {
     buyerId: string
     totalAmount: string
     createdAt: Date
+    donatedAmount: string
   }
   
   export type GetOrdersByCampaignParams = {

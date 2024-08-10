@@ -60,7 +60,7 @@ const ProfilePage = async ({searchParams}: SearchParamProps) => {
           emptyStateSubtext="Create and fundraise for the right cause"
           collectionType="Campaigns_Organized"
           urlParamName='campaignsPage'
-          limit={6}
+          limit={3}
           page={campaignsPage}
           totalPages={organizedCampaigns?.totalPages}
         />
