@@ -21,7 +21,7 @@ loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
-const Checkout = ({campaign,userId}: {campaign:ICampaign,userId: string}) => {
+const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string }) => {
 
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -36,9 +36,9 @@ const Checkout = ({campaign,userId}: {campaign:ICampaign,userId: string}) => {
   }, []);
 
 
-  const onCheckout = async() =>{
+  const onCheckout = async () => {
 
-    const order={
+    const order = {
       campaignTitle: campaign.title,
       campaignId: campaign._id,
       price: campaign.price,
@@ -54,21 +54,21 @@ const Checkout = ({campaign,userId}: {campaign:ICampaign,userId: string}) => {
         {campaign.isFree? ("Contribute"):("Donate")}
       </Button> */}
 
-<Drawer>
-  <DrawerTrigger>Donate</DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
-    </DrawerHeader>
-    <DrawerFooter>
-      <Button>Submit</Button>
-      <DrawerClose>
-        <Button variant="outline">Cancel</Button>
-      </DrawerClose>
-    </DrawerFooter>
-  </DrawerContent>
-</Drawer>
+      <Drawer>
+        <DrawerTrigger>Donate</DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button>Submit</Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
 
 
 

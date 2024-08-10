@@ -22,6 +22,7 @@ export async function POST(request: Request) {
   // CREATE
   if (campaignType === 'checkout.session.completed') {
     const { id, amount_total, metadata } = campaign.data.object
+    console.log(campaign.data.object)
 
     const order = {
       stripeId: id,
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
       buyerId: metadata?.buyerId || '',
       totalAmount: amount_total ? (amount_total / 100).toString() : '0',
       createdAt: new Date(),
+      donatedAmount: "",
     }
 
     const newOrder = await createOrder(order)
