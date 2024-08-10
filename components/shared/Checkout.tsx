@@ -63,14 +63,13 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
         {/* <Button type="submit" role="link" size="lg" className="button sm:w-fit">
         {campaign.isFree? ("Contribute"):("Donate")}
       </Button> */}
-
-
+<div className="bg-white">
         <Drawer>
           <DrawerTrigger asChild>
             <Button size="lg" className="button sm:w-fit">Donate</Button>
           </DrawerTrigger>
           <DrawerContent>
-            <div className="mx-auto w-full max-w-sm bg-white">
+            <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
                 <DrawerTitle>Move Goal</DrawerTitle>
                 <DrawerDescription>Set your daily activity goal.</DrawerDescription>
@@ -118,7 +117,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
           </DrawerContent>
         </Drawer>
 
-
+        </div>
 
 
       </form>
