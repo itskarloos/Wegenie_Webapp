@@ -67,10 +67,10 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
         <Drawer>
           <DrawerTrigger asChild>
-            <Button variant="outline">Open Drawer</Button>
+            <Button size="lg" className="button sm:w-fit">Donate</Button>
           </DrawerTrigger>
           <DrawerContent>
-            <div className="mx-auto w-full max-w-sm">
+            <div className="mx-auto w-full max-w-sm bg-white">
               <DrawerHeader>
                 <DrawerTitle>Move Goal</DrawerTitle>
                 <DrawerDescription>Set your daily activity goal.</DrawerDescription>
