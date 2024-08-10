@@ -101,7 +101,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
             </div>
           </div>
           <DrawerFooter>
-            <Button type="submit" size="lg" className="button sm:w-fit" onClick={onCheckout}>
+            <Button type="submit" onClick={onCheckout}>
               Donate amount
             </Button>
             <DrawerClose asChild>
