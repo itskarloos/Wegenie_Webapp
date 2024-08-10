@@ -59,7 +59,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
 
   return (
-    <form onSubmit={onCheckout} method="post">
+   
     <Drawer>
       <DrawerTrigger asChild>
         <Button size="lg" className="button sm:w-fit">Donate</Button>
@@ -101,7 +101,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
             </div>
           </div>
           <DrawerFooter>
-            <Button type="submit" size="lg" className="button sm:w-fit">
+            <Button type="submit" size="lg" className="button sm:w-fit" onClick={onCheckout}>
               Donate amount
             </Button>
             <DrawerClose asChild>
@@ -111,7 +111,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
         </div>
       </DrawerContent>
     </Drawer>
-  </form>
+ 
   )
 }
 
