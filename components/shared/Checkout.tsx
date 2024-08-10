@@ -42,7 +42,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
       campaignTitle: campaign.title,
       campaignId: campaign._id,
       price: campaign.price,
-      donatedAmount: campaign.price,
+      donatedAmount: goal,
       isFree: campaign.isFree,
       buyerId: userId
     }
@@ -60,9 +60,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
     return (
       <form action={onCheckout} method="post">
-        {/* <Button type="submit" role="link" size="lg" className="button sm:w-fit">
-        {campaign.isFree? ("Contribute"):("Donate")}
-      </Button> */}
+        {/*  */}
 
         <Drawer>
         
@@ -72,8 +70,8 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
           <DrawerContent className='bg-white'>
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
-                <DrawerTitle>Move Goal</DrawerTitle>
-                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                <DrawerTitle>Contribute</DrawerTitle>
+                <DrawerDescription>Choose amount and procced</DrawerDescription>
               </DrawerHeader>
               <div className="p-4 pb-0">
                 <div className="flex items-center justify-center space-x-2">
@@ -92,7 +90,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                       {goal}
                     </div>
                     <div className="text-[0.70rem] uppercase text-muted-foreground">
-                      Calories/day
+                      Birr
                     </div>
                   </div>
                   <Button
@@ -109,7 +107,9 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
               </div>
               <DrawerFooter>
-                <Button>Submit</Button>
+              <Button type="submit" role="link" size="lg" className="button sm:w-fit">
+        {campaign.isFree? ("Contribute"):("Donate")}
+      </Button>
                 <DrawerClose asChild>
                   <Button variant="outline">Cancel</Button>
                 </DrawerClose>
