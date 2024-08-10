@@ -63,8 +63,9 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
         {/* <Button type="submit" role="link" size="lg" className="button sm:w-fit">
         {campaign.isFree? ("Contribute"):("Donate")}
       </Button> */}
-<div className="bg-white">
+
         <Drawer>
+        <div className="bg-white">
           <DrawerTrigger asChild>
             <Button size="lg" className="button sm:w-fit">Donate</Button>
           </DrawerTrigger>
@@ -115,9 +116,10 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
               </DrawerFooter>
             </div>
           </DrawerContent>
+          </div>
         </Drawer>
 
-        </div>
+      
 
 
       </form>
