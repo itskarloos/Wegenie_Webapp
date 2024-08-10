@@ -65,11 +65,11 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
       </Button> */}
 
         <Drawer>
-        <div className="bg-white">
+        
           <DrawerTrigger asChild>
             <Button size="lg" className="button sm:w-fit">Donate</Button>
           </DrawerTrigger>
-          <DrawerContent>
+          <DrawerContent className='bg-white'>
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
                 <DrawerTitle>Move Goal</DrawerTitle>
@@ -116,7 +116,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
               </DrawerFooter>
             </div>
           </DrawerContent>
-          </div>
+        
         </Drawer>
 
       
