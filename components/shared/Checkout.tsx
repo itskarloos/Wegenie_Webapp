@@ -13,6 +13,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { Minus, Plus } from 'lucide-react';
 
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -79,6 +80,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 onClick={() => onClick(-10)}
                 disabled={goal <= 200}
               >
+                <Minus className="h-4 w-4" />
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
@@ -96,6 +98,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 onClick={() => onClick(10)}
                 disabled={goal >= 400}
               >
+                <Plus className="h-4 w-4" />
                 <span className="sr-only">Increase</span>
               </Button>
             </div>
