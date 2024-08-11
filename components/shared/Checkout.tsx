@@ -55,7 +55,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
 
   function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+    setGoal(Math.max(10, Math.min(1000000, goal + adjustment)))
   }
 
 
