@@ -23,7 +23,7 @@ loadStripe(
 );
 
 const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string }) => {
-  const [goal, setGoal] = React.useState(350)
+  const [goal, setGoal] = React.useState(100)
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -78,7 +78,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
                 onClick={() => onClick(-10)}
-                disabled={goal <= 200}
+                disabled={goal <= 10}
               >
                 <Minus className="h-4 w-4" />
                 <span className="sr-only">Decrease</span>
@@ -96,7 +96,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
                 onClick={() => onClick(10)}
-                disabled={goal >= 400}
+                disabled={goal >= 1000000}
               >
                 <Plus className="h-4 w-4" />
                 <span className="sr-only">Increase</span>
