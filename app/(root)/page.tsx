@@ -23,14 +23,10 @@ export default async function Home({searchParams}: SearchParamProps) {
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
-        <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
+        <div className="wrapper grid grid-col-1 gap-8 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-2">
            
-           <TextGenerateEffect duration={2} filter={true} className="h1-bold" words={words} />
-           
-           
-          
-           
+           <TextGenerateEffect duration={1} filter={true} className="h1-bold" words={words} />
            
            
             <p className="p-regular-20 md:p-regular-24">
