@@ -18,15 +18,17 @@ export default async function Home({searchParams}: SearchParamProps) {
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
   const words = `Start Cultivating Hope, Change Lifes's Impact The World
-  Now!`;
+  Now!`
 
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-2">
+           <h1 className="h1-bold">
+           <TextGenerateEffect duration={2} filter={true} className="h1-bold" words={words} />
+           </h1>
            
-           <TextGenerateEffect duration={2} filter={false} className="h1-bold" words={words} />;
           
            
            
