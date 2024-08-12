@@ -16,39 +16,6 @@ export default async function Home({searchParams}: SearchParamProps) {
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
   const words = [
-    {
-      text: "Start ",
-      className:"h1-bold",
-    },
-    {
-      text: "Cultivating ",
-      className:"h1-bold",
-    },
-    {
-      text: "Hope, ",
-      className:"h1-bold",
-    },
-    {
-      text: "Change ",
-      className:"h1-bold",
-    },
-    {
-      text: "Lifes's ",
-      className:"h1-bold",
-    },
-    {
-      text: "Impact ",
-      className:"h1-bold",
-    },
-    {
-      text: "The ",
-      className:"h1-bold",
-    },
-
-    {
-      text: "World ",
-      className:"h1-bold",
-    },
    
     {
       text: "Now! ",
@@ -62,8 +29,11 @@ export default async function Home({searchParams}: SearchParamProps) {
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-2">
+           <h1 className="h1-bold">
+           Start  Cultivating  Hope,  Change  Lifes's  Impact  The  World
+           <TypewriterEffectSmooth words={words} />
+            </h1>
            
-            <TypewriterEffectSmooth words={words} />
            
             <p className="p-regular-20 md:p-regular-24">
               Turn your passion into purpose. Fundraise for what matters most.
