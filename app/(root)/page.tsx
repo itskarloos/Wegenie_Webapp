@@ -30,8 +30,8 @@ export default async function Home({searchParams}: SearchParamProps) {
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-2">
            <h1 className="h1-bold">
-           Start  Cultivating  Hope,  Change  Lifes's  Impact  The  World
-          <span><TypewriterEffectSmooth words={words}/></span>
+           Start  Cultivating  Hope,  Change  Lifes's  Impact  The  World<span><TypewriterEffectSmooth words={words}/></span>
+          
             </h1>
            
            
