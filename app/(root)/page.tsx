@@ -8,6 +8,8 @@ import { DESTRUCTION } from "dns";
 import Image from "next/image";
 import Link from "next/link";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
+ 
 
 export default async function Home({searchParams}: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -15,24 +17,18 @@ export default async function Home({searchParams}: SearchParamProps) {
   const category = (searchParams?.category as string) || ''
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
-  const words = [
-   
-    {
-      text: "Now!",
-      className: "text-green-500 h1-bold",
-     
-    },
-  ];
+  const words = `Start Cultivating Hope, Change Lifes's Impact The World
+  Now!`;
 
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-2">
-           <h1 className="h1-bold">
-           Start  Cultivating  Hope,  Change  Lifes's  Impact  The  World<span><TypewriterEffectSmooth words={words}/></span>
+           
+           <TextGenerateEffect duration={2} filter={false} className="h1-bold" words={words} />;
           
-            </h1>
+           
            
            
             <p className="p-regular-20 md:p-regular-24">
