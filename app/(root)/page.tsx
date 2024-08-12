@@ -8,7 +8,7 @@ import { DESTRUCTION } from "dns";
 import Image from "next/image";
 import Link from "next/link";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { TextGenerateEffect } from "../ui/text-generate-effect";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
  
 
 export default async function Home({searchParams}: SearchParamProps) {
