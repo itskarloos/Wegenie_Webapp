@@ -16,9 +16,9 @@ export default async function Home({searchParams}: SearchParamProps) {
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-8">
+          <div className="flex flex-col justify-center gap-5">
             <h1 className="h1-bold">
               Start Cultivating Hope, Change Life's, Impact The World Now!
             </h1>
@@ -38,6 +38,9 @@ export default async function Home({searchParams}: SearchParamProps) {
           />
         </div>
       </section>
+
+
+
       <section id="charity" className="wrapper my-8 gap-8 flex flex-col md:gap-12">
         <h2 className="h2-bold">
           Explore
