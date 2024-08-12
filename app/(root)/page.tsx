@@ -7,6 +7,7 @@ import { SearchParamProps } from "@/types";
 import { DESTRUCTION } from "dns";
 import Image from "next/image";
 import Link from "next/link";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default async function Home({searchParams}: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -14,14 +15,38 @@ export default async function Home({searchParams}: SearchParamProps) {
   const category = (searchParams?.category as string) || ''
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
+  const words = [
+    {
+      text: "Start ",
+      className:"h1-bold",
+    },
+    {
+      text: "Cultivating Hope,",
+      className:"h1-bold",
+    },
+    {
+      text: "Change Life's,",
+      className:"h1-bold"
+    },
+    {
+      text: "Impact The World ",
+      className:"h1-bold",
+    },
+    {
+      text: "Now! ",
+      className: "text-green-500 h1-bold",
+     
+    },
+  ];
+
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-8 md:py-10">
-        <div className="wrapper grid grid-col-1 gap-2 md:grid-cols-2 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-5">
-            <h1 className="h1-bold">
-              Start Cultivating Hope, Change Life's, Impact The World Now!
-            </h1>
+        <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
+          <div className="flex flex-col justify-center gap-2">
+           
+            <TypewriterEffectSmooth words={words} />
+           
             <p className="p-regular-20 md:p-regular-24">
               Turn your passion into purpose. Fundraise for what matters most.
             </p>
