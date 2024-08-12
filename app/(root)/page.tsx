@@ -17,7 +17,7 @@ export default async function Home({searchParams}: SearchParamProps) {
   const category = (searchParams?.category as string) || ''
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
-  const words = `Start Cultivating Hope, Change Lifes's Impact The World
+  const words = `Start Cultivating Hope, Change Life's Impact The World
   Now!`
 
   return (
