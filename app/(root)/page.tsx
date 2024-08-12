@@ -18,7 +18,7 @@ export default async function Home({searchParams}: SearchParamProps) {
   const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
 
   const words = `Start Cultivating Hope, Change Life's Impact The World
-  Now!`
+  `
 
   return (
     <>
