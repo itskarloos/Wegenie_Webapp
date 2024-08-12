@@ -21,17 +21,35 @@ export default async function Home({searchParams}: SearchParamProps) {
       className:"h1-bold",
     },
     {
-      text: "Cultivating Hope,",
+      text: "Cultivating ",
       className:"h1-bold",
     },
     {
-      text: "Change Life's,",
-      className:"h1-bold"
-    },
-    {
-      text: "Impact The World ",
+      text: "Hope, ",
       className:"h1-bold",
     },
+    {
+      text: "Change ",
+      className:"h1-bold",
+    },
+    {
+      text: "Lifes's ",
+      className:"h1-bold",
+    },
+    {
+      text: "Impact ",
+      className:"h1-bold",
+    },
+    {
+      text: "The ",
+      className:"h1-bold",
+    },
+
+    {
+      text: "World ",
+      className:"h1-bold",
+    },
+   
     {
       text: "Now! ",
       className: "text-green-500 h1-bold",
