@@ -38,7 +38,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
       >
         <Link href={`/campaigns/${campaign._id}`}>
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p></Link>
-          
+
         {!hidePrice && (
           <div className="flex gap-2">
             <span className="p-semibold-14 w-min rounded-full bg-green-100 px-4 py-1 text-green-60">
@@ -60,7 +60,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
 
           <div className="flex-between w-full">
             <p className="p-medium-14 md:p-medium-16 text-grey-600">
-              {campaign.organizer.firstName} {campaign.organizer.lastName}
+              by {campaign.organizer.firstName} {campaign.organizer.lastName}
             </p>
             {hasOrderLink &&(<Link href={`/orders?campaignId=${campaign._id}`} className="flex gap-2">
               <p className="text-primary-500">Order Details</p>
