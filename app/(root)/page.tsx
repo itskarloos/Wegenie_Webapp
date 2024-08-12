@@ -18,7 +18,7 @@ export default async function Home({searchParams}: SearchParamProps) {
   const words = [
    
     {
-      text: "Now! ",
+      text: "Now!",
       className: "text-green-500 h1-bold",
      
     },
@@ -31,7 +31,7 @@ export default async function Home({searchParams}: SearchParamProps) {
           <div className="flex flex-col justify-center gap-2">
            <h1 className="h1-bold">
            Start  Cultivating  Hope,  Change  Lifes's  Impact  The  World
-           <TypewriterEffectSmooth words={words} />
+          <span><TypewriterEffectSmooth words={words}/></span>
             </h1>
            
            
