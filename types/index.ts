@@ -152,5 +152,11 @@ export type CreateUserParams = {
     searchParams: { [key: string]: string | string[] | undefined }
   }
   export type updateDonatedAmountParams = {
-    order : IOrder
+    stripeId: string
+    campaignId: string
+    buyerId: string
+    
+    createdAt: Date
+    donatedAmount: string
   }
+  

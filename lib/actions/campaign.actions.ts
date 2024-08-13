@@ -177,12 +177,12 @@ export async function getCampaignsByUser({ userId, limit = 6, page }: GetCampaig
 }
 
 
-export async function updateDonatedAmount({ order }: updateDonatedAmountParams) {
+export async function updateDonatedAmount( order : updateDonatedAmountParams) {
   try {
     await connectToDatabase()
 
     // Find the campaign by its ID
-    const campaignToUpdate = await Campaign.findById(order.campaign)
+    const campaignToUpdate = await Campaign.findById(order.campaignId)
 
     if (!campaignToUpdate) {
       throw new Error('Campaign not found')
