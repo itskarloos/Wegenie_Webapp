@@ -1,3 +1,5 @@
+import { IOrder } from "@/lib/database/models/order.model"
+
 // ====== USER PARAMS
 export type CreateUserParams = {
     clerkId: string
@@ -148,4 +150,7 @@ export type CreateUserParams = {
   export type SearchParamProps = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
+  }
+  export type updateDonatedAmountParams = {
+    order : IOrder
   }

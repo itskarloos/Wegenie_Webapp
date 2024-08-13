@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,GetCampaignsByUserParams,GetRelatedCampaignsByCategoryParams,UpdateCampaignParams } from "@/types";
+import { CreateCampaignParams, DeleteCampaignParams, GetAllCampaignsParams,GetCampaignsByUserParams,GetRelatedCampaignsByCategoryParams,UpdateCampaignParams, updateDonatedAmountParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database"; 
 import User from "../database/models/user.model";
@@ -171,6 +171,38 @@ export async function getCampaignsByUser({ userId, limit = 6, page }: GetCampaig
     const campaignsCount = await Campaign.countDocuments(conditions)
 
     return { data: JSON.parse(JSON.stringify(campaigns)), totalPages: Math.ceil(campaignsCount / limit) }
+  } catch (error) {
+    handleError(error)
+  }
+}
+
+
+export async function updateDonatedAmount({ order }: updateDonatedAmountParams) {
+  try {
+    await connectToDatabase()
+
+    // Find the campaign by its ID
+    const campaignToUpdate = await Campaign.findById(order.campaign)
+
+    if (!campaignToUpdate) {
+      throw new Error('Campaign not found')
+    }
+
+    // Convert the donatedAmount and order amount to numbers, increment, then convert back to string
+    const updatedDonatedAmount = (parseFloat(campaignToUpdate.donatedAmount) + parseFloat(order.donatedAmount)).toString()
+
+    // Update the donatedAmount in the database
+    const updatedCampaign = await Campaign.findByIdAndUpdate(
+      campaignToUpdate._id,
+      { donatedAmount: updatedDonatedAmount },
+      { new: true } // Return the updated document
+    )
+
+    // Define the path for revalidation
+    const path = `/campaign/${updatedCampaign._id}`
+    revalidatePath(path)
+
+    return JSON.parse(JSON.stringify(updatedCampaign))
   } catch (error) {
     handleError(error)
   }
