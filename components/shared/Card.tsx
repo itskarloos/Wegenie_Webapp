@@ -5,6 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { DeleteConfirmation } from "./DeleteConfirmation";
+import { Progress } from "@/components/ui/progress"
+
+
+
 
 type CardProps = {
   campaign: ICampaign;
@@ -37,7 +41,11 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4"
       >
         <Link href={`/campaigns/${campaign._id}`}>
-          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p></Link>
+          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p>
+
+          <Progress value= {60} className="w-[60%]" />
+
+          </Link>
 
         {!hidePrice && (
           <div className="flex gap-2">
