@@ -65,10 +65,10 @@ export const createOrder = async (order: CreateOrderParams) => {
 
 export async function getOrdersByCampaign({ searchString, campaignId }: GetOrdersByCampaignParams) {
   try {
-    await connectToDatabase()
+    await connectToDatabase();
 
-    if (!campaignId) throw new Error('Campaign ID is required')
-    const campaignObjectId = new ObjectId(campaignId)
+    if (!campaignId) throw new Error('Campaign ID is required');
+    const campaignObjectId = new ObjectId(campaignId);
 
     const orders = await Order.aggregate([
       {
@@ -98,6 +98,9 @@ export async function getOrdersByCampaign({ searchString, campaignId }: GetOrder
           _id: 1,
           totalAmount: 1,
           createdAt: 1,
+          donatedAmount: {
+            $toDouble: '$donatedAmount', // Convert donatedAmount to a number
+          },
           campaignTitle: '$campaign.title',
           campaignId: '$campaign._id',
           buyer: {
@@ -107,10 +110,13 @@ export async function getOrdersByCampaign({ searchString, campaignId }: GetOrder
       },
       {
         $match: {
-          $and: [{ campaignId: campaignObjectId }, { buyer: { $regex: RegExp(searchString, 'i') } }],
+          $and: [
+            { campaignId: campaignObjectId },
+            { buyer: { $regex: RegExp(searchString, 'i') } },
+          ],
         },
       },
-    ])
+    ]);
 
     return JSON.parse(JSON.stringify(orders))
   } catch (error) {
