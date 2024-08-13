@@ -18,16 +18,16 @@ type CardProps = {
 };
 const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
   const {sessionClaims} = auth();
-  const [progress, setProgress] = useState<number>(0);
+  // const [progress, setProgress] = useState<number>(0);
   const userId = sessionClaims?.userId as String;
   const isCampaignCreator = userId === campaign.organizer._id.toString();
   const totalAmount = campaign.campaignAmount;
   const donatedAmount = campaign.donatedAmount;
 
-  function calculateProgress({ totalAmount, donatedAmount }: { totalAmount: string; donatedAmount: string }) {
-    const calculatedProgress = (parseFloat(donatedAmount) / parseFloat(totalAmount)) * 100;
-    setProgress(calculatedProgress);
-  }
+  // function calculateProgress({ totalAmount, donatedAmount }: { totalAmount: string; donatedAmount: string }) {
+  //   const calculatedProgress = (parseFloat(donatedAmount) / parseFloat(totalAmount)) * 100;
+  //   setProgress(calculatedProgress);
+  // }
   
 
   return (
