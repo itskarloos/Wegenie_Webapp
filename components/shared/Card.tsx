@@ -43,7 +43,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         <Link href={`/campaigns/${campaign._id}`}>
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p>
 
-          <Progress value= {60} className="w-[60%]" />
+          <Progress value= {60} className="w-[100%]" />
 
           </Link>
 
