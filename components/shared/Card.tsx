@@ -18,16 +18,11 @@ type CardProps = {
 };
 const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
   const {sessionClaims} = auth();
-  // const [progress, setProgress] = useState<number>(0);
   const userId = sessionClaims?.userId as String;
   const isCampaignCreator = userId === campaign.organizer._id.toString();
-  const totalAmount = campaign.campaignAmount;
-  const donatedAmount = campaign.donatedAmount;
+  const progress = (parseFloat(campaign.donatedAmount) / parseFloat(campaign.campaignAmount)) * 100;
 
-  // function calculateProgress({ totalAmount, donatedAmount }: { totalAmount: string; donatedAmount: string }) {
-  //   const calculatedProgress = (parseFloat(donatedAmount) / parseFloat(totalAmount)) * 100;
-  //   setProgress(calculatedProgress);
-  // }
+
   
 
   return (
@@ -53,7 +48,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         <Link href={`/campaigns/${campaign._id}`}>
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p>
 
-          {/* <Progress value= {progress} className="w-[100%]" /> */}
+          <Progress value= {progress} className="w-[100%]" />
 
           </Link>
 
