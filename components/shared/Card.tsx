@@ -3,7 +3,7 @@ import { formatDateTime } from "@/lib/utils";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { DeleteConfirmation } from "./DeleteConfirmation";
 import { Progress } from "@/components/ui/progress"
 
@@ -17,9 +17,18 @@ type CardProps = {
 };
 const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
   const {sessionClaims} = auth();
+  const [progress, setProgress] = useState<number>(0);
   const userId = sessionClaims?.userId as String;
-
   const isCampaignCreator = userId === campaign.organizer._id.toString();
+  const totalAmount = campaign.campaignAmount;
+  const donatedAmount = campaign.donatedAmount;
+
+  function calculateProgress({ totalAmount, donatedAmount }: { totalAmount: string; donatedAmount: string }) {
+    const calculatedProgress = (parseFloat(donatedAmount) / parseFloat(totalAmount)) * 100;
+    setProgress(calculatedProgress);
+  }
+  
+
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
       <Link
@@ -43,7 +52,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         <Link href={`/campaigns/${campaign._id}`}>
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{campaign.title}</p>
 
-          <Progress value= {60} className="w-[100%]" />
+          <Progress value= {progress} className="w-[100%]" />
 
           </Link>
 

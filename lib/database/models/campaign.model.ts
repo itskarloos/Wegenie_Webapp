@@ -9,6 +9,7 @@ export interface ICampaign extends Document {
   startDateTime: Date;
   endDateTime: Date;
   campaignAmount: string;
+  donatedAmount: string;
   isVerfied: boolean;
   phoneNumber: string;
   requestVerfication: boolean;
