@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import { ICampaign } from "@/lib/database/models/campaign.model";
 import { formatDateTime } from "@/lib/utils";
 import { auth } from "@clerk/nextjs/server";
