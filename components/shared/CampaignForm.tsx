@@ -50,7 +50,8 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof campaignformSchema>) {
     const campaignData = values;
-
+    const isVerfied = false;
+    console.log(values)
     let uploadedImageUrl = values.imageUrl;
 
     if(files.length > 0){
@@ -79,6 +80,7 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
       try {
         
           const updatedCampaign = await updateCampaign({
+          
             userId,
             campaign: {
               ...values,
@@ -180,19 +182,19 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="location"
+            name="phoneNumber"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
                       src="/assets/icons/location-grey.svg"
-                      alt="location"
+                      alt="Phone"
                       width={24}
                       height={24}
                     />
                     <Input
-                      placeholder="Campaign Location"
+                      placeholder="Phone Number"
                       {...field}
                       className="input-field"
                     />
@@ -275,7 +277,7 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="price"
+            name="campaignAmount"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
@@ -289,27 +291,27 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
                     />
                     <Input
                       type="number"
-                      placeholder="Price"
+                      placeholder="Amount"
                       {...field}
                       className="p-regular-16 border-0 bg-grey-50 outline-offset-0 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                     />
                     <FormField
                       control={form.control}
-                      name="isFree"
+                      name="requestVerfication"
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
                             <div className="flex items-center">
                               <label
-                                htmlFor="isFree"
+                                htmlFor="requestVerfication"
                                 className="whitespace-nowrap pr-3 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                               >
-                                Free Ticket
+                                Request Verfication
                               </label>
                               <Checkbox
                                 onCheckedChange={field.onChange}
                                 checked={field.value}
-                                id="isFree"
+                                id="requestVerfication"
                                 className="mr-2 h-5 w-5 border-2 border-primary-500"
                               />
                             </div>
@@ -324,31 +326,7 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="url"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
-                    <Image
-                      src="/assets/icons/link.svg"
-                      alt="link"
-                      width={24}
-                      height={24}
-                    />
-
-                    <Input
-                      placeholder="URL"
-                      {...field}
-                      className="input-field"
-                    />
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          
         </div>
 
         <Button

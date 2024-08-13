@@ -37,6 +37,7 @@ export const createCampaign = async ({
     const newCampaign = await Campaign.create({
       ...campaign,
       category: campaign.categoryId,
+      
       organizer: userId,
     });
     return JSON.parse(JSON.stringify(newCampaign));

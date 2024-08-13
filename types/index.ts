@@ -18,35 +18,37 @@ export type CreateUserParams = {
   // ====== EVENT PARAMS
   export type CreateCampaignParams = {
     userId: string
+   
     campaign: {
       title: string
       description: string
-      location: string
+      phoneNumber: string
       imageUrl: string
       startDateTime: Date
       endDateTime: Date
       categoryId: string
-      price: string
-      isFree: boolean
-      url: string
+      campaignAmount: string
+      
+      requestVerfication: boolean
     }
     path: string
   }
   
   export type UpdateCampaignParams = {
     userId: string
+    
     campaign: {
       _id?: string
       title: string
       imageUrl: string
       description: string
-      location: string
       startDateTime: Date
       endDateTime: Date
       categoryId: string
-      price: string
-      isFree: boolean
-      url: string
+      campaignAmount: string
+      requestVerfication: boolean
+      phoneNumber: string
+      
     }
     path: string
   }

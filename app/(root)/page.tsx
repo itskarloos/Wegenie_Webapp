@@ -9,26 +9,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
- 
 
-export default async function Home({searchParams}: SearchParamProps) {
+export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
-  const searchText = (searchParams?.query as string) || ''
-  const category = (searchParams?.category as string) || ''
-  const campaigns = await getAllCampaigns({ query: searchText, category, page , limit: 6 });
+  const searchText = (searchParams?.query as string) || "";
+  const category = (searchParams?.category as string) || "";
+  const campaigns = await getAllCampaigns({
+    query: searchText,
+    category,
+    page,
+    limit: 6,
+  });
 
-  const words = `Start Cultivating Hope, Change Life's Impact The World
-  `
+  const words = `Start Cultivating Hope, Change Life's Impact The World`;
 
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
         <div className="wrapper grid grid-col-1 gap-5 md:grid-cols-2 2xl:gap-0">
+
           <div className="flex flex-col justify-center gap-8">
-           
-           <TextGenerateEffect duration={1} filter={true} className="h1-bold" words={words} />
-           
-           
+            <TextGenerateEffect
+              duration={1}
+              filter={true}
+              className="h1-bold"
+              words={words}
+            />
+
             <p className="p-regular-20 md:p-regular-24">
               Turn your passion into purpose. Fundraise for what matters most.
             </p>
@@ -46,18 +53,17 @@ export default async function Home({searchParams}: SearchParamProps) {
         </div>
       </section>
 
-
-
-      <section id="charity" className="wrapper my-8 gap-8 flex flex-col md:gap-12">
+      <section
+        id="charity"
+        className="wrapper my-8 gap-8 flex flex-col md:gap-12"
+      >
         <h2 className="h2-bold">
           Explore
           <br /> various campaign
         </h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
-        <Search />
-          <CategoryFilter/>
-          
-         
+          <Search />
+          <CategoryFilter />
         </div>
         <Collection
           data={campaigns?.data}
