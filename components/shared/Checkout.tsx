@@ -23,7 +23,7 @@ loadStripe(
 );
 
 const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string }) => {
-  const [goal, setGoal] = React.useState(100)
+  const [amount, setAmount] = React.useState(100)
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -42,9 +42,9 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
     const order = {
       campaignTitle: campaign.title,
       campaignId: campaign._id,
-      price: campaign.price,
-      donatedAmount: goal.toString(),
-      isFree: campaign.isFree,
+      
+      donatedAmount: amount.toString(),
+     
       buyerId: userId
     }
     await checkoutOrder(order);
@@ -55,7 +55,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
 
   function onClick(adjustment: number) {
-    setGoal(Math.max(10, Math.min(1000000, goal + adjustment)))
+    setAmount(Math.max(10, Math.min(1000000, amount + adjustment)))
   }
 
 
@@ -78,14 +78,14 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
                 onClick={() => onClick(-10)}
-                disabled={goal <= 10}
+                disabled={amount <= 10}
               >
                 <Minus className="h-4 w-4" />
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
                 <div className="text-7xl font-bold tracking-tighter">
-                  {goal}
+                  {amount}
                 </div>
                 <div className="text-[0.70rem] uppercase text-muted-foreground">
                   Birr
@@ -96,7 +96,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
                 onClick={() => onClick(10)}
-                disabled={goal >= 1000000}
+                disabled={amount >= 1000000}
               >
                 <Plus className="h-4 w-4" />
                 <span className="sr-only">Increase</span>

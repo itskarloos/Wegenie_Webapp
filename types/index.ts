@@ -109,8 +109,6 @@ export type CreateUserParams = {
   export type CheckoutOrderParams = {
     campaignTitle: string
     campaignId: string
-    price: string
-    isFree: boolean
     donatedAmount: string
     buyerId: string
   }

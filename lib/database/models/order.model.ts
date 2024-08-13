@@ -36,9 +36,7 @@ const OrderSchema = new Schema({
     required: true,
     unique: true,
   },
-  totalAmount: {
-    type: String,
-  },
+ 
   donatedAmount: {
     type: String,
   },

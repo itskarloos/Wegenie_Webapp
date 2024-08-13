@@ -13,7 +13,7 @@ import {ObjectId} from 'mongodb';
 
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-  const amount = order.isFree ? 0 : Number(order.donatedAmount) * 100;
+  const donatedAmount = Number(order.donatedAmount) * 100;
 
   try {
     // Create Checkout Sessions from body params.
@@ -23,7 +23,7 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
         {
           price_data: {
             currency: "usd",
-            unit_amount: amount,
+            unit_amount: donatedAmount,
 
             product_data: {
               name: order.campaignTitle,
