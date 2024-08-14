@@ -51,6 +51,9 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 </span>
               </p>
             </div>
+            <p className="p-semibold-14 w-max px-4 py-1 text-black">
+              {campaign.donatedAmount}$ • Raised
+            </p>
           </div>
 
           <CheckoutButton campaign={campaign}/>
