@@ -44,7 +44,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 </p>
               </div>
               <p className="p-medium-18 px-4 py-1 text-black">
-              {campaign.donatedAmount}$ • Raised
+              ${campaign.donatedAmount} • Raised
             </p>
               
             </div>
