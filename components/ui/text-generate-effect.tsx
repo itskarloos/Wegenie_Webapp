@@ -56,7 +56,7 @@ export const TextGenerateEffect = ({
         <div className="dark:text-white text-black text-2xl leading-snug tracking-wide">
           <h1 className="h1-bold">
             {renderWords()}
-            <span className="text-green-500 inline">Now!</span>
+            <span className="text-green-500 inline"> Now!</span>
           </h1>
         </div>
       </div>
