@@ -53,7 +53,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
           </Link>
 
         {!hidePrice && (
-          <div className="flex gap-5">
+          <div className="flex justify-between items-center">
           <div className="flex gap-2">
             <span className="p-semibold-14 w-min rounded-full bg-green-100 px-4 py-1 text-green-60">
               ${campaign.campaignAmount}
