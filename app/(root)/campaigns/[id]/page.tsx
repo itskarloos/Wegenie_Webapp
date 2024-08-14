@@ -33,11 +33,8 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
           <div className="flex flex-col gap-6">
             <h2 className="h2-bold">{campaign.title}</h2>
             <Progress value= {progress} className="w-[100%]" />
-
-            <div className="flex flex-col gap-3 sm:items-center">
-
-           
-
+            
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <div className="flex gap-3">
                 <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
                   ${campaign.campaignAmount}
@@ -45,13 +42,10 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 <p className="p-medium-16 rounded-full bg-grey-500/10 px-4 py-2.5 text-grey-500">
                   {campaign.category.name}
                 </p>
-          
-         
-              <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
-                {campaign.donatedAmount}$ • Raised
-              </p>
-             
               </div>
+              <p className="p-semibold-14 w-max px-4 py-1 text-black">
+              {campaign.donatedAmount}$ • Raised
+            </p>
               <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
                 <span className="text-green-700">
