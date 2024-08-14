@@ -154,6 +154,40 @@ export async function getOrdersByCampaign({ searchString, campaignId }: GetOrder
 //     handleError(error)
 //   }
 // }
+// export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUserParams) {
+//   try {
+//     await connectToDatabase();
+
+//     const skipAmount = (Number(page) - 1) * limit;
+//     const conditions = { buyer: userId };
+
+//     const orders = await Order.find(conditions)
+//       .sort({ createdAt: 'desc' })
+//       .skip(skipAmount)
+//       .limit(limit)
+//       .populate({
+//         path: 'campaign',
+//         model: Campaign,
+//         populate: {
+//           path: 'organizer',
+//           model: User,
+//           select: '_id firstName lastName',
+//         },
+//       })
+      
+
+//     const ordersCount = await Order.countDocuments(conditions);
+
+//     return {
+//       data: JSON.parse(JSON.stringify(orders)),
+//       totalPages: Math.ceil(ordersCount / limit),
+//     };
+//   } catch (error) {
+//     handleError(error);
+//   }
+// }
+
+
 export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUserParams) {
   try {
     await connectToDatabase();
@@ -174,7 +208,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
           select: '_id firstName lastName',
         },
       })
-      
+      .select('_id campaign donatedAmount createdAt stripeId');
 
     const ordersCount = await Order.countDocuments(conditions);
 
@@ -186,4 +220,3 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
     handleError(error);
   }
 }
-
