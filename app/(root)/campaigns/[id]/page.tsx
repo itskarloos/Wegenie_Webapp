@@ -36,7 +36,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
 
             <div className="flex flex-col gap-3 sm:items-center">
 
-            <div className="flex justify-between">
+           
 
               <div className="flex gap-3">
                 <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
@@ -46,11 +46,11 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                   {campaign.category.name}
                 </p>
            </div>
-           <div>
+         
               <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 {campaign.donatedAmount}$ • Raised
               </p>
-              </div>
+             
               </div>
               <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
