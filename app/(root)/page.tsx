@@ -30,7 +30,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
           <div className="flex flex-col justify-center gap-8">
             <TextGenerateEffect
-              duration={1}
+            
               filter={true}
               className="h1-bold"
               words={words}
