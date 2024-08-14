@@ -15,11 +15,12 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
     page: searchParams.page as string,}
   )
   const progress = (parseFloat(campaign.donatedAmount) / parseFloat(campaign.campaignAmount)) * 100;
-  
+
   return (
     <>
     <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
+
         <Image
           src={campaign.imageUrl}
           alt="hero image"
@@ -27,11 +28,16 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
           height={1000}
           className="min-h-[300px] object-contain object-center"
         />
-        <div className="flex w-full flex-col gap-8 p-5 md:p-10">
+
+        <div className="flex w-full flex-col gap-8 p-5 md:p-8">
           <div className="flex flex-col gap-6">
             <h2 className="h2-bold">{campaign.title}</h2>
             <Progress value= {progress} className="w-[100%]" />
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+
+            <div className="flex flex-col gap-3 sm:items-center">
+
+            <div className="flex justify-between items-center">
+
               <div className="flex gap-3">
                 <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
                   ${campaign.campaignAmount}
@@ -39,6 +45,10 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 <p className="p-medium-16 rounded-full bg-grey-500/10 px-4 py-2.5 text-grey-500">
                   {campaign.category.name}
                 </p>
+           </div>
+              <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
+                {campaign.donatedAmount}$ • Raised
+              </p>
               </div>
               <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
