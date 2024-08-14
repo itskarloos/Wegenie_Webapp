@@ -16,7 +16,7 @@ const ProfilePage = async ({searchParams}: SearchParamProps) => {
   const organizedCampaigns = await getCampaignsByUser({ userId, page: campaignsPage })
   const orders = await getOrdersByUser({ userId, page: ordersPage })
   const orderedCampaign = orders?.data.map((order: IOrder) => order.campaign || [])
-  console.log(orderedCampaign)
+  console.log(orders)
  
   return (
     <>
