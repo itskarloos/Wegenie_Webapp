@@ -36,7 +36,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
 
             <div className="flex flex-col gap-3 sm:items-center">
 
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between">
 
               <div className="flex gap-3">
                 <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
