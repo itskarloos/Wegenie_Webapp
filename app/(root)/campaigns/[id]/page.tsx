@@ -43,17 +43,19 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                   {campaign.category.name}
                 </p>
               </div>
+              <p className="p-medium-18 px-4 py-1 text-black">
+              {campaign.donatedAmount}$ • Raised
+            </p>
               
-              <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
+            </div>
+            <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
                 <span className="text-green-700">
                   {campaign.organizer.firstName} {campaign.organizer.lastName}
                 </span>
               </p>
-            </div>
-            <p className="p-medium-18 px-4 py-1 text-black">
-              {campaign.donatedAmount}$ • Raised
-            </p>
+
+            
           </div>
 
           <CheckoutButton campaign={campaign}/>
