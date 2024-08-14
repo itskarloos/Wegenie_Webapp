@@ -174,7 +174,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
           select: '_id firstName lastName',
         },
       })
-      .select('_id campaign donatedAmount createdAt');
+      
 
     const ordersCount = await Order.countDocuments(conditions);
 
