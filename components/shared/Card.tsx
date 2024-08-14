@@ -62,7 +62,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
               {campaign.category.name}
             </p>
           </div>
-          <p className="p-semibold-14 w-min px-4 py-1 text-grey-500">
+          <p className="p-semibold-14 w-max px-4 py-1 text-grey-500">
               {campaign.donatedAmount} • Raised
             </p>
           </div>
