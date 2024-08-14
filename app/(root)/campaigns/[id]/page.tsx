@@ -48,7 +48,7 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
             </p>
               
             </div>
-            <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
+            <p className="p-regular-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
                 <span className="text-green-700">
                   {campaign.organizer.firstName} {campaign.organizer.lastName}
