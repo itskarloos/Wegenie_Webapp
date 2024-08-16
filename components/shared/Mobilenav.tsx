@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetDescription,
     SheetHeader,
@@ -24,7 +25,9 @@ const Mobilenav = () => {
                 width={128}
                 height={38}/>
                 <Separator className='border border-gray-50'/>
+                <SheetClose asChild>
                 <Navitems/>
+                </SheetClose>
                 </SheetContent>
             </Sheet>
 
