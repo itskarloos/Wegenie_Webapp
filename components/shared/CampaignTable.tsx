@@ -50,7 +50,7 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[100px]">Organizer</TableHead>
-                            <TableHead>Campaign Status</TableHead>
+                            <TableHead className="flex items-center justify-center">Campaign Status</TableHead>
                             <TableHead>Title</TableHead>
                             <TableHead className="text-right">Amount</TableHead>
                         </TableRow>
