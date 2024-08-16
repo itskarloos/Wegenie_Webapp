@@ -7,6 +7,8 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { Badge } from "@/components/ui/badge"
+
 
 type Organizer = {
     _id: string;
@@ -48,7 +50,7 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[100px]">Organizer</TableHead>
-                            <TableHead>Status</TableHead>
+                            <TableHead>Campaign Status</TableHead>
                             <TableHead>Title</TableHead>
                             <TableHead className="text-right">Amount</TableHead>
                         </TableRow>
@@ -57,7 +59,7 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                         {campaignTableOrders.data.map((order) => (
                             <TableRow key={order._id}>
                                 <TableCell className="font-medium">{order.campaign.organizer.firstName} {order.campaign.organizer.lastName}</TableCell>
-                                <TableCell>Paid</TableCell>
+                                <TableCell><Badge variant="outline">Live</Badge></TableCell>
                                 <TableCell>{order.campaign.title}</TableCell>
                                 <TableCell className="text-right">${order.donatedAmount}</TableCell>
                             </TableRow>
