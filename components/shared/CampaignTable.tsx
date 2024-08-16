@@ -62,7 +62,7 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                             return (
                                 <TableRow key={order._id}>
                                     <TableCell className="font-medium">{order.campaign.organizer.firstName} {order.campaign.organizer.lastName}</TableCell>
-                                    {hasCampaignFinished ? (<TableCell className="flex items-center justify-center"><Badge variant="outline">Live</Badge></TableCell>) : (<TableCell className="flex items-center justify-center"><Badge variant="destructive">Unavailable</Badge></TableCell>)}
+                                    {hasCampaignFinished ? (<TableCell className="flex items-center justify-center"><Badge variant="destructive">Unavailable</Badge></TableCell>) : (<TableCell className="flex items-center justify-center"><Badge variant="outline">Live</Badge></TableCell>)}
 
 
                                     <TableCell>{order.campaign.title}</TableCell>
