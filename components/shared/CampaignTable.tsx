@@ -21,8 +21,8 @@ type Campaign = {
     title: string;
     description: string;
     imageUrl: string;
-    startDateTime: number; // Assuming this is a timestamp
-    endDateTime: number;   // Assuming this is a timestamp
+    startDateTime: number;
+    endDateTime: number;
     campaignAmount: string;
     donatedAmount: string;
     organizer: Organizer;
@@ -30,7 +30,7 @@ type Campaign = {
 
 type Donation = {
     _id: string;
-    createdAt: number; // Assuming this is a timestamp
+    createdAt: number;
     stripeId: string;
     donatedAmount: string;
     campaign: Campaign;
@@ -56,14 +56,19 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {campaignTableOrders.data.map((order) => (
-                            <TableRow key={order._id}>
-                                <TableCell className="font-medium">{order.campaign.organizer.firstName} {order.campaign.organizer.lastName}</TableCell>
-                                <TableCell className="flex items-center justify-center"><Badge variant="outline">Live</Badge></TableCell>
-                                <TableCell>{order.campaign.title}</TableCell>
-                                <TableCell className="text-right">${order.donatedAmount}</TableCell>
-                            </TableRow>
-                        ))}
+                        {campaignTableOrders.data.map((order) => {
+                            const hasCampaignFinished = new Date(order.campaign.endDateTime) < new Date();
+
+                            return (
+                                <TableRow key={order._id}>
+                                    <TableCell className="font-medium">{order.campaign.organizer.firstName} {order.campaign.organizer.lastName}</TableCell>
+                                    {hasCampaignFinished ? (<TableCell className="flex items-center justify-center"><Badge variant="outline">Live</Badge></TableCell>) : (<TableCell className="flex items-center justify-center"><Badge variant="destructive">Unavailable</Badge></TableCell>)}
+
+
+                                    <TableCell>{order.campaign.title}</TableCell>
+                                    <TableCell className="text-right">${order.donatedAmount}</TableCell>
+                                </TableRow>)
+                        })}
                     </TableBody>
                 </Table>
             ) : (

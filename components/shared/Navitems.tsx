@@ -3,6 +3,7 @@ import { headerLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { Button } from "../ui/button";
 
 const Navitems = () => {
   const pathname = usePathname();
@@ -13,12 +14,12 @@ const Navitems = () => {
         return (
           <li
             key={link.route}
-            className={`${
-              isActive && "text-green-700"
-            } flex-center p-medium-16 whitespace-nowrap`}
+            className={`${isActive && "text-green-700"
+              } flex-center p-medium-16 whitespace-nowrap`}
           >
             <Link href={link.route}>{link.label}</Link>
           </li>
+
         );
       })}
     </ul>
