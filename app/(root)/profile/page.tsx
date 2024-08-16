@@ -1,3 +1,4 @@
+import CampaignContributionTable from '@/components/shared/CampaignTable'
 import Collection from '@/components/shared/Collection'
 import { Button } from '@/components/ui/button'
 import { getCampaignsByUser } from '@/lib/actions/campaign.actions'
@@ -31,7 +32,7 @@ const ProfilePage = async ({searchParams}: SearchParamProps) => {
         </div>
       </section>
       <section className="wrapper my-8">
-        <Collection
+        {/* <Collection
           data={orderedCampaign}
           emptyTitle="No campaign contribution"
           emptyStateSubtext="Explore and donate for the right cause"
@@ -40,7 +41,8 @@ const ProfilePage = async ({searchParams}: SearchParamProps) => {
           limit={2}
           page={ordersPage}
           totalPages={orders?.totalPages}
-        />
+        /> */}
+        <CampaignContributionTable campaignTableOrders={orders} />
       </section>
 
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">

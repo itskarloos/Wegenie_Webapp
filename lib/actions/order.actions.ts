@@ -218,5 +218,9 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
     };
   } catch (error) {
     handleError(error);
+    return {
+      data: [],
+      totalPages: 0,
   }
+}
 }
