@@ -12,7 +12,7 @@ export interface ICampaign extends Document {
   donatedAmount: string;
   isVerfied: boolean;
   phoneNumber: string;
-  requestVerfication: boolean;
+  requestVerification: boolean;
   category: { _id: string; name: string };
   organizer: { _id: string; firstName: string; lastName: string };
 }

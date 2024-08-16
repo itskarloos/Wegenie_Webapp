@@ -50,7 +50,7 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof campaignformSchema>) {
     const campaignData = values;
-    const isVerfied = false;
+    
     console.log(values)
     let uploadedImageUrl = values.imageUrl;
 
@@ -297,13 +297,13 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
                     />
                     <FormField
                       control={form.control}
-                      name="requestVerfication"
+                      name="requestVerification"
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
                             <div className="flex items-center">
                               <label
-                                htmlFor="requestVerfication"
+                                htmlFor="requestVerification"
                                 className="whitespace-nowrap pr-3 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                               >
                                 Request Verfication
@@ -311,9 +311,10 @@ const CampaignForm = ({ userId, type,campaign,campaignId }: CampaignFormProps) =
                               <Checkbox
                                 onCheckedChange={field.onChange}
                                 checked={field.value}
-                                id="requestVerfication"
+                                id="requestVerification"
                                 className="mr-2 h-5 w-5 border-2 border-primary-500"
                               />
+                              
                             </div>
                           </FormControl>
                           <FormMessage />

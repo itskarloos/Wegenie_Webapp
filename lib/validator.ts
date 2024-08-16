@@ -11,7 +11,7 @@ export const campaignformSchema = z.object({
   categoryId: z.string(),
   campaignAmount: z.string(),
  
-  requestVerfication: z.boolean(),
+  requestVerification: z.boolean(),
   phoneNumber: z.string(),
 });
 

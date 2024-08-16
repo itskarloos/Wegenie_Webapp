@@ -31,7 +31,7 @@ export type CreateUserParams = {
       categoryId: string
       campaignAmount: string
       
-      requestVerfication: boolean
+      requestVerification: boolean
     }
     path: string
   }
@@ -48,7 +48,7 @@ export type CreateUserParams = {
       endDateTime: Date
       categoryId: string
       campaignAmount: string
-      requestVerfication: boolean
+      requestVerification: boolean
       phoneNumber: string
       
     }
