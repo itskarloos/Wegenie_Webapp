@@ -59,7 +59,7 @@ const CampaignContributionTable = ({ campaignTableOrders }: { campaignTableOrder
                         {campaignTableOrders.data.map((order) => (
                             <TableRow key={order._id}>
                                 <TableCell className="font-medium">{order.campaign.organizer.firstName} {order.campaign.organizer.lastName}</TableCell>
-                                <TableCell><Badge variant="outline">Live</Badge></TableCell>
+                                <TableCell className="flex items-center justify-center"><Badge variant="outline">Live</Badge></TableCell>
                                 <TableCell>{order.campaign.title}</TableCell>
                                 <TableCell className="text-right">${order.donatedAmount}</TableCell>
                             </TableRow>
