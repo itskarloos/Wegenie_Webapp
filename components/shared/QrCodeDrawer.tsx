@@ -1,6 +1,6 @@
 import React from 'react'
 
-const QrCodeDrawer = () => {
+const QrCodeDrawer = ({campaignId}: {campaignId: string}) => {
   return (
     <div>QrCodeDrawer</div>
   )

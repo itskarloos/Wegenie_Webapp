@@ -59,7 +59,8 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
 
 
             </div>
-            <QrCodeDrawer campaign={id} />
+            
+            <QrCodeDrawer campaignId={id} />
             <CheckoutButton campaign={campaign} />
 
 
