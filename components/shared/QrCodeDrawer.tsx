@@ -17,9 +17,9 @@ import Image from 'next/image';
 
 
 
-const QrCodeDrawer = ({campaignId}: {campaignId: string}) => {
+const QrCodeDrawer = ({ campaignId }: { campaignId: string }) => {
 
-  const [src,setSrc] = useState<string>('');
+  const [src, setSrc] = useState<string>('');
 
   const generate = () => {
     QRCode.toDataURL(`https://wegenie-webapp.vercel.app/${campaignId}`).then(setSrc);
@@ -28,7 +28,7 @@ const QrCodeDrawer = ({campaignId}: {campaignId: string}) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button size="lg" className="button sm:w-fit">Qr Code</Button>
+        <Button size="lg" className="button sm:w-fit" onClick={generate}>Qr Code</Button>
       </DrawerTrigger>
       <DrawerContent className="bg-white">
         <div className="mx-auto w-full max-w-sm">
@@ -38,7 +38,7 @@ const QrCodeDrawer = ({campaignId}: {campaignId: string}) => {
           </DrawerHeader>
           <div className="p-4 pb-0">
             <div className="flex items-center justify-center space-x-2">
-              
+
               <Image src={src} alt="qr code" width={300} height={300} />
             </div>
           </div>
