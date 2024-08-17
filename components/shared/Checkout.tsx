@@ -24,6 +24,7 @@ loadStripe(
 
 const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string }) => {
   const [amount, setAmount] = React.useState(100)
+  
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
