@@ -22,7 +22,7 @@ const QrCodeDrawer = ({ campaignId }: { campaignId: string }) => {
   const [src, setSrc] = useState<string>('');
 
   const generate = () => {
-    QRCode.toDataURL(`https://wegenie-webapp.vercel.app/${campaignId}`).then(setSrc);
+    QRCode.toDataURL(`https://wegenie-webapp.vercel.app/campaigns/${campaignId}`).then(setSrc);
   }
 
   return (
