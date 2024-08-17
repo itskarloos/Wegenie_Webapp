@@ -8,21 +8,31 @@ import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import React from "react";
 
+// Move async logic outside the component
 const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProps) => {
   const campaign = await getCampaignById(id);
   const relatedCampaigns = await getRelatedCampaignsByCategory({
     categoryId: campaign.category._id,
     campaignId: campaign._id,
     page: searchParams.page as string,
-  }
-  )
+  });
+
+  return (
+    <CampaignDetailsContent
+      campaign={campaign}
+      relatedCampaigns={relatedCampaigns}
+      searchParams={searchParams}
+    />
+  );
+};
+
+const CampaignDetailsContent = ({ campaign, relatedCampaigns, searchParams }: any) => {
   const progress = (parseFloat(campaign.donatedAmount) / parseFloat(campaign.campaignAmount)) * 100;
 
   return (
     <>
       <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
-
           <Image
             src={campaign.imageUrl}
             alt="hero image"
@@ -48,7 +58,6 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 <p className="p-medium-18 px-4 py-1 text-black">
                   ${campaign.donatedAmount} • Raised
                 </p>
-
               </div>
               <p className="p-regular-18 ml-2 mt-2 sm:mt-0">
                 by{" "}
@@ -56,16 +65,10 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                   {campaign.organizer.firstName} {campaign.organizer.lastName}
                 </span>
               </p>
-
-
             </div>
-            
-            <QrCodeDrawer campaignId={id} />
+
+            <QrCodeDrawer campaignId={campaign._id} />
             <CheckoutButton campaign={campaign} />
-
-
-
-
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
@@ -77,12 +80,11 @@ const CampaignDetails = async ({ params: { id }, searchParams }: SearchParamProp
                 />
                 <div className="p-medium-16 lg:p-regular-20 flex flex-wrap items-center">
                   <p>
-                    {formatDateTime(campaign.startDateTime).dateOnly} - {" "}
+                    {formatDateTime(campaign.startDateTime).dateOnly} -{" "}
                     {formatDateTime(campaign.startDateTime).timeOnly}
                   </p>
-
                   <p>
-                    {formatDateTime(campaign.endDateTime).dateOnly} - {" "}
+                    {formatDateTime(campaign.endDateTime).dateOnly} -{" "}
                     {formatDateTime(campaign.startDateTime).timeOnly}
                   </p>
                 </div>
