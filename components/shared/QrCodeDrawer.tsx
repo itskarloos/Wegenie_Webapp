@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import QRCode from "qrcode"
 import {
   Drawer,
@@ -17,10 +19,10 @@ import Image from 'next/image';
 
 const QrCodeDrawer = ({campaignId}: {campaignId: string}) => {
 
-  const [src,setSrc] = React.useState("");
+  const [src,setSrc] = useState<string>('');
 
   const generate = () => {
-    QRCode.toDataURL(`https://wegenie-webapp.vercel.app/${campaignId}`).then(setSrc)
+    QRCode.toDataURL(`https://wegenie-webapp.vercel.app/${campaignId}`).then((val) => setSrc(val));
   }
 
   return (
