@@ -13,18 +13,18 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import { Minus, Plus } from 'lucide-react';
-
+import { Minus, Plus, HandCoins } from 'lucide-react';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
+
 loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
 const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string }) => {
   const [amount, setAmount] = React.useState(100)
-  
+
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -43,9 +43,9 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
     const order = {
       campaignTitle: campaign.title,
       campaignId: campaign._id,
-      
+
       donatedAmount: amount.toString(),
-     
+
       buyerId: userId
     }
     await checkoutOrder(order);
@@ -61,10 +61,10 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
 
   return (
-   
+
     <Drawer>
       <DrawerTrigger asChild>
-        <Button size="lg" className="button sm:w-fit">Donate</Button>
+      <Button size="lg" variant="outline" className="sm:w-fit"><HandCoins className="mr-2 h-4 w-4" /> Donate</Button>
       </DrawerTrigger>
       <DrawerContent className="bg-white">
         <div className="mx-auto w-full max-w-sm">
@@ -115,7 +115,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
         </div>
       </DrawerContent>
     </Drawer>
- 
+
   )
 }
 

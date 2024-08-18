@@ -14,7 +14,7 @@ const CheckoutButton = ({campaign}:{campaign:ICampaign}) => {
     const userId= user?.publicMetadata.userId as string
     const hasCampaignFinished = new Date(campaign.endDateTime) < new Date();
   return (
-    <div className="flex item-center gap-3">
+    <div className="flex item-center gap-2">
         {hasCampaignFinished? (
             <p className='p-2 text-red-400'>Sorry,The Campaign is not available</p>
         ): (
