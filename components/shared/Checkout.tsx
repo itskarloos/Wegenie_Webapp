@@ -64,7 +64,7 @@ const Checkout = ({ campaign, userId }: { campaign: ICampaign, userId: string })
 
     <Drawer>
       <DrawerTrigger asChild>
-      <Button size="lg" variant="outline" className="sm:w-fit"><HandCoins className="mr-2 h-4 w-4" /> Donate</Button>
+      <Button size="lg" className="emerald-600 sm:w-fit"><HandCoins className="mr-2 h-4 w-4" /> Donate</Button>
       </DrawerTrigger>
       <DrawerContent className="bg-white">
         <div className="mx-auto w-full max-w-sm">

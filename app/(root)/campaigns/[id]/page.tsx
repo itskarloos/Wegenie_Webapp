@@ -41,7 +41,7 @@ const CampaignDetailsContent = ({ campaign, relatedCampaigns, searchParams }: an
             className="min-h-[300px] object-contain object-center"
           />
 
-          <div className="flex w-full flex-col gap-8 p-5 md:p-8">
+          <div className="flex w-full flex-col gap-5 p-5 md:p-8">
             <div className="flex flex-col gap-6">
               <h2 className="h2-bold">{campaign.title}</h2>
               <Progress value={progress} className="w-[100%]" />

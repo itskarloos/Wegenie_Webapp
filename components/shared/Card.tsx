@@ -70,7 +70,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         )}
 
 
-        <p className="p-medium-16 md:p-medium-18 text-grey-500">
+        <p className="p-regular-12 md:p-regular-14 text-grey-500">
             {formatDateTime(campaign.startDateTime).dateTime}
           </p>
           

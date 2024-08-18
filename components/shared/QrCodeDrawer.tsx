@@ -28,7 +28,7 @@ const QrCodeDrawer = ({ campaignId }: { campaignId: string }) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button size="lg" variant="outline" className="button sm:w-fit" onClick={generate}><QrCode className="mr-2 h-4 w-4" /> Qr Code</Button>
+        <Button size="lg" variant="outline" className="sm:w-fit" onClick={generate}><QrCode className="mr-2 h-4 w-4" /> Qr Code</Button>
       </DrawerTrigger>
       <DrawerContent className="bg-white">
         <div className="mx-auto w-full max-w-sm">
