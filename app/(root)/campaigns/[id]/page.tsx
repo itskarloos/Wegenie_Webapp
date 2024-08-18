@@ -66,9 +66,9 @@ const CampaignDetailsContent = ({ campaign, relatedCampaigns, searchParams }: an
                 </span>
               </p>
             </div>
-
-            <QrCodeDrawer campaignId={campaign._id} />
             <CheckoutButton campaign={campaign} />
+            <QrCodeDrawer campaignId={campaign._id} />
+            
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
