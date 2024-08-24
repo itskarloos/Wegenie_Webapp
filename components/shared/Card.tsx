@@ -49,7 +49,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
           <div
             className="flex flex-row gap-2 md:gap-3"
           >
-            <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title} {campaign.isVerified && (<CircleCheck />)}</p>
+            <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title} </p> {campaign.isVerified && (<CircleCheck />)}
           </div>
           <Progress value={progress} className="w-[100%]" />
 
