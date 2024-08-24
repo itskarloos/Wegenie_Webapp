@@ -84,8 +84,8 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
 
         <div className="flex-between w-full gap-2 p-regular-10 md:p-regular-16 text-grey-600">
           <div className="flex items-center ">
-            <Users className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground text-sm">{" "}{campaign.organizer.firstName} {campaign.organizer.lastName}</span>
+            <Users className="h-4 w-4 text-muted-foreground" /> {" "}
+            <span className="text-muted-foreground text-sm">{campaign.organizer.firstName} {campaign.organizer.lastName}</span>
           </div>
 
 
