@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { DeleteConfirmation } from "./DeleteConfirmation";
 import { Progress } from "@/components/ui/progress";
-import { CircleCheck, BadgeCheck } from "lucide-react";
+import { CircleCheck, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 type CardProps = {
@@ -46,35 +46,35 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
       <div className="flex min-h-[230px] flex-col gap-2 p-5 md:gap-3">
         <Link href={`/campaigns/${campaign._id}`}>
           <div className="flex flex-row items-center">
-            <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">
+            <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-1">
               {campaign.title}{" "}
             </p>{" "}
-            {campaign.isVerified && (
-              <Badge
-                variant="outline"
-                className="bg-primary text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
-              >
-                <CircleCheck color="white" className="h-4 w-4" />
-                <span className="text-sm font-medium">Verified</span>
-              </Badge>
-            )}
+
           </div>
-          <Progress value={progress} className="w-[100%]" />
         </Link>
+        <div className="flex items-center gap-2">
+          <span className="text-muted-foreground text-sm">${campaign.donatedAmount} raised</span>
+          <span className="text-muted-foreground text-sm">of ${campaign.campaignAmount} goal</span>
+        </div>
+        <Progress value={progress} className="w-[100%]" />
+
 
         {!hidePrice && (
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
-              <span className="p-semibold-14 w-min rounded-full bg-green-100 px-4 py-1 text-green-60">
-                ${campaign.campaignAmount}
-              </span>
+              {campaign.isVerified && (
+                <Badge
+                  variant="outline"
+                  className="bg-primary text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
+                >
+                  <CircleCheck color="white" className="h-4 w-4" />
+                  <span className="text-sm font-medium">Verified</span>
+                </Badge>
+              )}
               <p className="p-semibold-14 w-min rounded-full bg-grey-500/10 px-4 py-1 text-grey-500 line-clamp-1">
                 {campaign.category.name}
               </p>
             </div>
-            <p className="p-semibold-14 w-max px-4 py-1 text-black">
-              {campaign.donatedAmount}$ • Raised
-            </p>
           </div>
         )}
 
@@ -82,10 +82,17 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
           {formatDateTime(campaign.startDateTime).dateTime}
         </p>
 
-        <div className="flex-between w-full">
-          <p className="p-medium-14 md:p-medium-16 text-grey-600">
-            by {campaign.organizer.firstName} {campaign.organizer.lastName}
-          </p>
+        <div className="flex-between w-full gap-2 p-regular-10 md:p-regular-16 text-grey-600">
+          <div className="flex items-center ">
+            <Users className="h-4 w-4 text-muted-foreground" />
+            <span className="text-muted-foreground text-sm">{" "}{campaign.organizer.firstName} {campaign.organizer.lastName}</span>
+          </div>
+
+
+
+
+
+
           {hasOrderLink && (
             <Link
               href={`/orders?campaignId=${campaign._id}`}
