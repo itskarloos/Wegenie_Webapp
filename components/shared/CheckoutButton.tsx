@@ -20,13 +20,15 @@ const CheckoutButton = ({ campaign }: { campaign: ICampaign }) => {
             ) : (
                 <>
                     <SignedOut>
-                        <SignInButton />
+                        <SignInButton fallbackRedirectUrl={`/campaigns/${campaign.id}`}>
+                        <Button size="lg" className="emerald-600 sm:w-fit"> Donate </Button>
+                            </SignInButton>
                     </SignedOut>
 
                     <SignedIn>
                         <Checkout campaign={campaign} userId={userId} />
                     </SignedIn>
-                    
+
                 </>
             )}
         </>
