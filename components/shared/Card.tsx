@@ -46,7 +46,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
         className="flex min-h-[230px] flex-col gap-2 p-5 md:gap-3"
       >
         <Link href={`/campaigns/${campaign._id}`}>
-          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title} {campaign.isVerfied && (<CircleCheck />)}</p>
+          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title} {campaign.isVerified && (<CircleCheck />)}</p>
 
           <Progress value= {progress} className="w-[100%]" />
 
