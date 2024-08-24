@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { DeleteConfirmation } from "./DeleteConfirmation";
 import { Progress } from "@/components/ui/progress"
+import { CircleCheck } from 'lucide-react';
 
 
 
@@ -42,11 +43,10 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
 
       )}
       <div
-        
         className="flex min-h-[230px] flex-col gap-2 p-5 md:gap-3"
       >
         <Link href={`/campaigns/${campaign._id}`}>
-          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title}</p>
+          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-2">{campaign.title} {campaign.isVerfied && (<CircleCheck />)}</p>
 
           <Progress value= {progress} className="w-[100%]" />
 
