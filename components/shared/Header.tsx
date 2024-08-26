@@ -27,7 +27,7 @@ const Header = () => {
     };
   }, []);
   return (
-    <header className={`${  scrolled ? 'backdrop-blur-xl bg-white/30' : 'bg-white'}  flex justify-between items-center w-full h-20 px-4 fixed `}>
+    <header className={`${  scrolled ? 'backdrop-blur-xl bg-white/30' : 'bg-white'}  flex justify-between items-center w-full h-20 px-4 fixed z-[1000]`}>
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image
