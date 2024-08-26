@@ -14,7 +14,7 @@ import Navitems from './Navitems'
 
 const Mobilenav = () => {
   return (
-    <nav className='md:hidden z-[1001]'>
+    <nav className='md:hidden'>
       <Sheet>
         <SheetTrigger className='align-middle'>
           <Image src="/assets/icons/menu.svg" width={24} height={24} alt="Menu" className='cursor-pointer' />
