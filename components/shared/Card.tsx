@@ -49,15 +49,17 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
             <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black py-1">
               {campaign.title}{" "}
             </p>{" "}
-
           </div>
         </Link>
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground text-sm">${campaign.donatedAmount} raised</span>
-          <span className="text-muted-foreground text-sm">of ${campaign.campaignAmount} goal</span>
+          <span className="text-muted-foreground text-sm">
+            ${campaign.donatedAmount} raised
+          </span>
+          <span className="text-muted-foreground text-sm">
+            of ${campaign.campaignAmount} goal
+          </span>
         </div>
         <Progress value={progress} className="w-[100%]" />
-
 
         {!hidePrice && (
           <div className="flex justify-between items-center">
@@ -65,7 +67,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
               {campaign.isVerified && (
                 <Badge
                   variant="outline"
-                  className="bg-gr text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
+                  className="bg-green-600 text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
                 >
                   <CircleCheck color="white" className="h-4 w-4" />
                   <span className="text-sm font-medium">Verified</span>
@@ -84,14 +86,11 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
 
         <div className="flex-between w-full gap-2 p-regular-10 md:p-regular-16 text-grey-600">
           <div className="flex items-center ">
-            <Users className="h-4 w-4 text-muted-foreground" /> {" "}
-            <span className="text-muted-foreground text-sm">{campaign.organizer.firstName} {campaign.organizer.lastName}</span>
+            <Users className="h-4 w-4 text-muted-foreground" />{" "}
+            <span className="text-muted-foreground text-sm">
+              {campaign.organizer.firstName} {campaign.organizer.lastName}
+            </span>
           </div>
-
-
-
-
-
 
           {hasOrderLink && (
             <Link
