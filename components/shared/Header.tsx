@@ -8,7 +8,7 @@ import Mobilenav from './Mobilenav'
 
 const Header = () => {
   return (
-    <header className="w-full border-b backdrop-blur-xl bg-white/30 fixed">
+    <header className="w-full border-b backdrop-blur-xl bg-white/30 ">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image src="/assets/images/wegenie-logo.svg" width={128} height={38} alt="Wegenie Logo" />
