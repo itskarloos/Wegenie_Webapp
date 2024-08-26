@@ -18,10 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <ClerkProvider >
     <html lang="en">
-      <body className={poppins.className}>{children}<SpeedInsights /></body>
+      <body className={poppins.className}>
+        {children}
+        
+        <SpeedInsights /></body>
     </html>
     </ClerkProvider>
+
+
+
   );
 }
