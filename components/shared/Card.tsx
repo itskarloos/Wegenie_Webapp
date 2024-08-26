@@ -67,7 +67,7 @@ const Card = ({ campaign, hasOrderLink, hidePrice }: CardProps) => {
               {campaign.isVerified && (
                 <Badge
                   variant="outline"
-                  className="bg-green-600 text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
+                  className="bg-green-700 text-primary-foreground px-3 py-1 rounded-full flex items-center justify-center gap-2"
                 >
                   <CircleCheck color="white" className="h-4 w-4" />
                   <span className="text-sm font-medium">Verified</span>
