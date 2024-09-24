@@ -66,26 +66,28 @@ const CampaignContributionTable = ({
                 new Date(order.campaign?.endDateTime) < new Date();
 
               return (
-                <TableRow key={order._id}>
-                  <TableCell className="font-medium">
-                    {order.campaign?.organizer.firstName}{" "}
-                    {order.campaign?.organizer.lastName}
-                  </TableCell>
-                  {hasCampaignFinished ? (
-                    <TableCell className="flex items-center justify-center">
-                      <Badge variant="destructive">Unavailable</Badge>
+                order.campaign && (
+                  <TableRow key={order._id}>
+                    <TableCell className="font-medium">
+                      {order.campaign?.organizer.firstName}{" "}
+                      {order.campaign?.organizer.lastName}
                     </TableCell>
-                  ) : (
-                    <TableCell className="flex items-center justify-center">
-                      <Badge variant="outline">Live</Badge>
-                    </TableCell>
-                  )}
+                    {hasCampaignFinished ? (
+                      <TableCell className="flex items-center justify-center">
+                        <Badge variant="destructive">Unavailable</Badge>
+                      </TableCell>
+                    ) : (
+                      <TableCell className="flex items-center justify-center">
+                        <Badge variant="outline">Live</Badge>
+                      </TableCell>
+                    )}
 
-                  <TableCell>{order.campaign?.title}</TableCell>
-                  <TableCell className="text-right">
-                    ${order.donatedAmount}
-                  </TableCell>
-                </TableRow>
+                    <TableCell>{order.campaign?.title}</TableCell>
+                    <TableCell className="text-right">
+                      ${order.donatedAmount}
+                    </TableCell>
+                  </TableRow>
+                )
               );
             })}
           </TableBody>
